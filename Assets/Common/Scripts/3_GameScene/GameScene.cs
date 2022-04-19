@@ -16,6 +16,10 @@ public class GameScene : HSingleton<GameScene>
     public GameObject playerDeadPanel;
     public GameObject OptionPanel;
 
+    public GameObject StartTimeImg;
+
+    public float StartdelayT;
+    public bool IsStartDelay = false;
 
     private void Start()
     {
@@ -27,7 +31,24 @@ public class GameScene : HSingleton<GameScene>
     //====================================================================================
     //====================================================================================
     //====================================================================================
+    public void StartDelayTime()
+    {
+        StartdelayT -= Time.deltaTime * 1f;
 
+        if (StartdelayT > 0)
+        {
+            IsStartDelay = true;
+
+            StartTimeImg.SetActive(true);
+        }
+        else if (StartdelayT <= 0)
+        {
+            IsStartDelay = false;
+            StartTimeImg.SetActive(false);
+        }
+
+
+    }
 
     private void GotoLobbyScene()
     {

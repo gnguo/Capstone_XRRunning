@@ -47,6 +47,7 @@ public class PlayerCtrl : MonoBehaviour
     public bool IsHit =false;
     public bool PlayerDie =false;
     public bool IsSlied = false;
+
     [SerializeField]
     private Slider hpbar;
 
@@ -54,7 +55,7 @@ public class PlayerCtrl : MonoBehaviour
     private float maxHp = 100;
     private float curHp = 100;
 
-
+    
     private void Awake()
     {
         movement = GetComponent<PlayerTouchMovement>();
@@ -65,21 +66,25 @@ public class PlayerCtrl : MonoBehaviour
 
     void Start()
     {
-            hpbar.value = (float)curHp / (float)maxHp;
+        //gameScene.StartDelayTime();
+        hpbar.value = (float)curHp / (float)maxHp;
     }
 
     void Update()
     {
-        HPHandle();
+        //if(!gameScene.IsStartDelay)
+        //{
+            HPHandle();
 
-        if (Application.isMobilePlatform)
-        {
-            OnMobilePlatform();
-        }
-        else
-        {
-            OnPCPlatform();
-        }
+            if (Application.isMobilePlatform)
+            {
+                OnMobilePlatform();
+            }
+            else
+            {
+                OnPCPlatform();
+            }
+        //
     }
 
     //[사용자 정의 함수]==================================================================
