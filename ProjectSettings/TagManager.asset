@@ -8,6 +8,9 @@ TagManager:
   - SpawnTrigger
   - Undefined
   - Obstacles
+  - Missile
+  - Obstacle
+  - Coin
   layers:
   - Default
   - TransparentFX

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerTouchMovement : MonoBehaviour
 {
-    private float moveXWidth = 3.1f;
+    private float moveXWidth = 3.6f;
     private float moveTimeX = 0.1f;
     private bool isXMove = false;
 
     private float originY = 1.1f;
     private float gravity = -10.81f;
-    private float moveTimeY = 0.6f;
+    private float moveTimeY = 0.8f;
     public bool isJump = false;
 
     [SerializeField]

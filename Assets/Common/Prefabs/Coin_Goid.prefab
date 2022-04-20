@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5707364815704846188}
   m_Layer: 0
   m_Name: Coin_Goid
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,15 +93,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 83f6e3304e51c41e3973e899951c80f5, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.05
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 83f6e3304e51c41e3973e899951c80f5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.05
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 83f6e3304e51c41e3973e899951c80f5, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.05
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 83f6e3304e51c41e3973e899951c80f5, type: 3}
       propertyPath: m_LocalPosition.x

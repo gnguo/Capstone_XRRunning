@@ -60,8 +60,8 @@ public class PlayerCtrl : MonoBehaviour
     {
         movement = GetComponent<PlayerTouchMovement>();
         meshs = GetComponentsInChildren<SkinnedMeshRenderer>();
-        gameScene = GetComponent<GameScene>();
-        gameInstance = GetComponent<GameInstance>();
+        gameScene = GameObject.Find("GameScene").GetComponent<GameScene>();
+        gameInstance = GameObject.Find("GameInstance").GetComponent<GameInstance>();
     }
 
     void Start()
@@ -212,7 +212,6 @@ public class PlayerCtrl : MonoBehaviour
     {
         IsHit = true;
 
-        float Speed = movement.moveSpeed;
 
         if (IsHit)
         {
@@ -221,6 +220,7 @@ public class PlayerCtrl : MonoBehaviour
                 mesh.material.color = Color.red;
             }
             movement.moveSpeed = 17f;
+
         }
 
         yield return new WaitForSeconds(0.1f);
@@ -233,8 +233,9 @@ public class PlayerCtrl : MonoBehaviour
             {
                 mesh.material.color = Color.white;
             }
-            movement.moveSpeed = 35;
+            movement.moveSpeed = 30;
         }
+
     }
 
     IEnumerator JumpOrDownTouchCoroutine()
