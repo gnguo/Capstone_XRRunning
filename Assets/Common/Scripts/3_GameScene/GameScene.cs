@@ -21,10 +21,17 @@ public class GameScene : HSingleton<GameScene>
     public float StartdelayT;
     public bool IsStartDelay = false;
 
+    ItemCtrl itemctrl;
+
+    private void Awake()
+    {
+        itemctrl = GameObject.FindGameObjectWithTag("Items").GetComponent<ItemCtrl>();
+    }
     private void Start()
     {
         GotoLobbyScene();
     }
+
     //[사용자 정의함수]===================================================================
     //====================================================================================
     //====================================================================================

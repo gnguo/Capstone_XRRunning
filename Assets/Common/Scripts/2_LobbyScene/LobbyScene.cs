@@ -104,7 +104,7 @@ public class LobbyScene : HSingleton<LobbyScene>
     /// </summary>
     public void GotoGameScene()
     {
-        //HSoundMng.Play(E_SOUNLIST.E_SHOTBULLET);
+        SoundManager.Play(E_SOUNLIST.E_SHOTBULLET);
 
         if (GameInstance.I.CreatePopupLoading(CanvasTM))
         {

@@ -11,6 +11,9 @@ TagManager:
   - Missile
   - Obstacle
   - Coin
+  - Items
+  - Coin_Detector
+  - Player_Bubble
   layers:
   - Default
   - TransparentFX

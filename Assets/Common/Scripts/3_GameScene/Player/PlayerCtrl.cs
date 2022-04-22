@@ -35,6 +35,7 @@ public class PlayerCtrl : MonoBehaviour
 
     private SkinnedMeshRenderer[] meshs;
     private PlayerTouchMovement movement;
+    
 
     private GameScene gameScene;
     private GameInstance gameInstance;
@@ -52,8 +53,8 @@ public class PlayerCtrl : MonoBehaviour
     private Slider hpbar;
 
 
-    private float maxHp = 100;
-    private float curHp = 100;
+    public float maxHp = 100;
+    public float curHp = 100;
 
     
     private void Awake()
