@@ -9,8 +9,8 @@ public class PlayerTouchMovement : MonoBehaviour
     private bool isXMove = false;
 
     private float originY = 1.1f;
-    private float gravity = -10.81f;
-    private float moveTimeY = 0.8f;
+    private float gravity = -13.81f;
+    private float moveTimeY = 0.7f;
     public bool isJump = false;
 
     [SerializeField]

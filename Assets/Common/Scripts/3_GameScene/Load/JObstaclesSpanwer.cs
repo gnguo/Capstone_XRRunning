@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class JObstaclesSpanwer : MonoBehaviour
-{    private int initAmount = 7;
+{
+    private int initAmount = 7;
     private float ObstaclesSize = 60f;
     private float xPos = 0f;
     private float lastZPos = -60f;
@@ -19,7 +20,10 @@ public class JObstaclesSpanwer : MonoBehaviour
     }
 
     private void Update()
-    {    }
+    {
+
+
+    }
 
     public void SpawnObstacle()
     {
@@ -28,4 +32,7 @@ public class JObstaclesSpanwer : MonoBehaviour
         float zPos = lastZPos + ObstaclesSize;
         Instantiate(obstacle, new Vector3(xPos, 0.025f, zPos), obstacle.transform.rotation);
 
-        lastZPos += ObstaclesSize;    }}
+        lastZPos += ObstaclesSize;
+    }
+
+}

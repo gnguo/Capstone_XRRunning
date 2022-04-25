@@ -14,55 +14,30 @@ public class ItemCtrl : MonoBehaviour
 
     public short nType;
 
-    public PlayerCtrl player;
-
-    public Magnet magnetItem;
+    public Item_Collection itemCollection;
+    public SphereCollider playerItemCol;
 
     private void Awake()
     {
-        magnetItem = GetComponent<Magnet>();
+        //Magnet magnetItem = GetComponent<Magnet>();
     }
     private void Start()
     {
         EnableItem();
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        //PlayerCtrl player = other.transform.parent.GetComponent<PlayerCtrl>();
-
-        if(player)
-        {
-            if(!player.IsHit && !player.PlayerDie)
-            {
-                switch(itemType)
-                {
-                    case eItem.Heart:
-                        DisableItem();
-                        FullHealth();
-                        break;
-                    case eItem.PowerUp:
-                        DisableItem();
-                        StartCoroutine(PowerUpCoroution());
-                        break;
-                    case eItem.Magnet:
-                        DisableItem();
-                        magnetItem.ActivateCoin();
-                        break;
-                }
-
-            }
-        }
+        //coinDetectorObj = GameObject.FindGameObjectWithTag("Coin_Detector");
+        itemCollection.coinDetectorObj.SetActive(false);
     }
 
     public void EnableItem()
     {
-        if(!bUse)
+        if (!bUse)
         {
             bUse = true;
             gameObject.SetActive(true);
         }
     }
+
 
     public void DisableItem()
     {
@@ -75,25 +50,33 @@ public class ItemCtrl : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void FullHealth()
+    private void OnTriggerEnter(Collider other)
     {
-        if(player.curHp < player.maxHp)
+        //PlayerCtrl player = other.transform.parent.GetComponent<PlayerCtrl>();
+
+        if(playerItemCol)
         {
-            player.curHp = 100;
+            if(!itemCollection.player.PlayerDie)
+            {
+                switch(itemType)
+                {
+                    case eItem.Heart:
+                        itemCollection.FullHealth();
+                        DisableItem();
+                        break;
+                    case eItem.PowerUp:
+                        itemCollection.PowerUp();
+                        DisableItem();
+                        break;
+                    case eItem.Magnet:
+                        itemCollection.ActivateCoin();
+                        Debug.Log("ihihihihihihiihihihhihi");
+                        DisableItem();
+                        break;
+                }
+
+            }
         }
     }
-    
-    IEnumerator PowerUpCoroution()
-    {
-        PlayerTouchMovement touchSpeed = GetComponent<PlayerTouchMovement>();
-        float moveSpeed = touchSpeed.moveSpeed;
-        
-        moveSpeed = moveSpeed * 1.5f;
-        player.gameObject.layer = 10;
 
-        yield return new WaitForSeconds(5);
-        player.gameObject.layer = 6;
-
-        moveSpeed = touchSpeed.moveSpeed;
-    }
 }

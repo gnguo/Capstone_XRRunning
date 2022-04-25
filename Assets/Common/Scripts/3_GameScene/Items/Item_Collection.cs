@@ -7,6 +7,14 @@ public class Item_Collection : MonoBehaviour
 {
     public List<ItemCtrl> Items;
 
+    public bool bUse;
+    public bool bPowerUp;
+    public short nType;
+
+    public PlayerCtrl player;
+
+    public GameObject coinDetectorObj;
+    public PlayerTouchMovement touchmove;
     void Awake()
     {
         Items = new List<ItemCtrl>();
@@ -38,5 +46,51 @@ public class Item_Collection : MonoBehaviour
     //====================================================================================
     //====================================================================================
 
+
+
+
+    public void FullHealth()
+    {
+        if (player.curHp < player.maxHp)
+        {
+            player.curHp = 100;
+        }
+    }
+
+
+    // Update is called once per frame
+    public void ActivateCoin()
+    {
+        Debug.Log("함수에들어와여");
+        StartCoroutine(ActivateCoinCoroutine());
+        // Destroy(transform.GetChild(0).gameObject);
+    }
+
+    IEnumerator ActivateCoinCoroutine()
+    {
+        coinDetectorObj.SetActive(true);
+        yield return new WaitForSeconds(6f);
+        coinDetectorObj.SetActive(false);
+    }
+
+    public void PowerUp()
+    {
+        StartCoroutine(PowerUpCoroution());
+    }
+
+    IEnumerator PowerUpCoroution()
+    {
+        touchmove.moveSpeed = 45f;
+        bPowerUp = true;
+
+        player.capsuleCol.enabled = false;
+        Debug.Log(player.gameObject.layer);
+
+        yield return new WaitForSeconds(5f);
+        player.capsuleCol.enabled = true;
+
+        bPowerUp = false;
+        touchmove.moveSpeed = 30f;
+    }
 
 }

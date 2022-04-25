@@ -39,6 +39,7 @@ public class PlayerCtrl : MonoBehaviour
 
     private GameScene gameScene;
     private GameInstance gameInstance;
+    public Item_Collection itemCollection;
 
     public Animator anim;
         
@@ -162,23 +163,25 @@ public class PlayerCtrl : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        switch (other.tag)
+        if(capsuleCol)
         {
-            case "SpawnTrigger":
-                spawnManager.SpawnTriggerEnter();
-                Debug.Log("spawn!!");
-                break;
+            switch (other.tag)
+            {
+                case "SpawnTrigger":
+                    spawnManager.SpawnTriggerEnter();
+                    break;
 
-            case "Obstacle":
-                HitObstacle();
-                Debug.Log("Obstacle");
-                break;
+                case "Obstacle":
+                    HitObstacle();
+                    break;
+            }
+
         }
     }
 
     public void HitObstacle()
     {
-        if (curHp > 0)
+        if (curHp > 0 && !itemCollection.bPowerUp)
         {
             curHp -= 10;
             StartCoroutine(HitObstacleICoroutine());
@@ -192,22 +195,22 @@ public class PlayerCtrl : MonoBehaviour
             gameScene.PlayerDie();
 
 
-            //StartCoroutine(PlayerDeadCoroutine());
+            StartCoroutine(PlayerDeadCoroutine());
         }
     }
 
-    //IEnumerator PlayerDeadCoroutine()
-    //{
-    //    PlayerDie = true;        
-    //    anim.SetTrigger("dieT");
+    IEnumerator PlayerDeadCoroutine()
+    {
+        PlayerDie = true;
+        anim.SetTrigger("dieT");
 
-    //    yield return new WaitForSeconds(0.36f);
+        yield return new WaitForSeconds(0.36f);
 
-    //    gameScene.PlayerDie();
+        gameScene.PlayerDie();
 
-    //    //gameoverUI start.
-    //    //gameStop
-    //}
+        //gameoverUI start.
+        //gameStop
+    }
 
     IEnumerator HitObstacleICoroutine()
     {
@@ -238,6 +241,7 @@ public class PlayerCtrl : MonoBehaviour
         }
 
     }
+
 
     IEnumerator JumpOrDownTouchCoroutine()
     {
