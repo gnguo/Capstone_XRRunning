@@ -15,7 +15,8 @@ public class ItemCtrl : MonoBehaviour
     public short nType;
 
     public Item_Collection itemCollection;
-    public SphereCollider playerItemCol;
+
+    public CapsuleCollider capsuleCol;
 
     private void Awake()
     {
@@ -52,13 +53,12 @@ public class ItemCtrl : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //PlayerCtrl player = other.transform.parent.GetComponent<PlayerCtrl>();
 
-        if(playerItemCol)
+        if (capsuleCol)
         {
-            if(!itemCollection.player.PlayerDie)
+            if (!itemCollection.player.PlayerDie)
             {
-                switch(itemType)
+                switch (itemType)
                 {
                     case eItem.Heart:
                         itemCollection.FullHealth();
@@ -77,6 +77,8 @@ public class ItemCtrl : MonoBehaviour
 
             }
         }
+        else
+            return;
     }
 
 }

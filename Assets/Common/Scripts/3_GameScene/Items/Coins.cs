@@ -29,7 +29,7 @@ public class Coins : MonoBehaviour
             Debug.Log("HIHIIHHHIIHIHh=========");
         }
 
-        if (other.gameObject.tag == "Player_Bubble")
+        if (other.gameObject.tag == "Player")
         {
             //Add count or give points etc etc.
             Destroy(gameObject);

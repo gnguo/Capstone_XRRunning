@@ -14,6 +14,7 @@ public class Item_Collection : MonoBehaviour
     public PlayerCtrl player;
 
     public GameObject coinDetectorObj;
+    public GameObject powerUp_Img;
     public PlayerTouchMovement touchmove;
     void Awake()
     {
@@ -80,14 +81,15 @@ public class Item_Collection : MonoBehaviour
 
     IEnumerator PowerUpCoroution()
     {
-        touchmove.moveSpeed = 45f;
+        touchmove.moveSpeed = 60f;
         bPowerUp = true;
-
+        powerUp_Img.SetActive(true);
         player.capsuleCol.enabled = false;
         Debug.Log(player.gameObject.layer);
 
         yield return new WaitForSeconds(5f);
         player.capsuleCol.enabled = true;
+        powerUp_Img.SetActive(false);
 
         bPowerUp = false;
         touchmove.moveSpeed = 30f;

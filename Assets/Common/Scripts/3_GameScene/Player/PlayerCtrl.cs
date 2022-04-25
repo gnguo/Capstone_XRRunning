@@ -32,6 +32,7 @@ public class PlayerCtrl : MonoBehaviour
     /// 쉴드 상태 저장 변수
     /// </summary>
     public int nShield;
+    public int coinScore;
 
     private SkinnedMeshRenderer[] meshs;
     private PlayerTouchMovement movement;
@@ -163,7 +164,7 @@ public class PlayerCtrl : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(capsuleCol)
+        if (capsuleCol)
         {
             switch (other.tag)
             {
@@ -174,9 +175,17 @@ public class PlayerCtrl : MonoBehaviour
                 case "Obstacle":
                     HitObstacle();
                     break;
+                case "Coin":
+                    coinScore++;
+                    gameScene.coinT.text = coinScore.ToString();
+
+                    break;
+
             }
 
         }
+        else
+            return;
     }
 
     public void HitObstacle()
@@ -184,16 +193,12 @@ public class PlayerCtrl : MonoBehaviour
         if (curHp > 0 && !itemCollection.bPowerUp)
         {
             curHp -= 10;
+
             StartCoroutine(HitObstacleICoroutine());
         }
 
         if (curHp <= 0)
         {
-            //game end
-            PlayerDie = true;
-            anim.SetTrigger("dieT");
-            gameScene.PlayerDie();
-
 
             StartCoroutine(PlayerDeadCoroutine());
         }
@@ -204,7 +209,7 @@ public class PlayerCtrl : MonoBehaviour
         PlayerDie = true;
         anim.SetTrigger("dieT");
 
-        yield return new WaitForSeconds(0.36f);
+        yield return new WaitForSeconds(0.5f);
 
         gameScene.PlayerDie();
 
@@ -215,8 +220,6 @@ public class PlayerCtrl : MonoBehaviour
     IEnumerator HitObstacleICoroutine()
     {
         IsHit = true;
-
-
         if (IsHit)
         {
             foreach (SkinnedMeshRenderer mesh in meshs)

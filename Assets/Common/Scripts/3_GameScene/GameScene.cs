@@ -1,6 +1,7 @@
 using MHomiLibrary;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -21,7 +22,21 @@ public class GameScene : HSingleton<GameScene>
     public float StartdelayT;
     public bool IsStartDelay = false;
 
+    public TextMeshProUGUI coinT;
+    public TextMeshProUGUI time_text;
+    public TextMeshProUGUI time_text_die;
+
     ItemCtrl itemctrl;
+
+
+    private GameObject player;
+
+    /// <summary>
+    /// UI타이머 설정
+    /// </summary>
+    public float startTime;
+    float sec;
+    float min;
 
     private void Awake()
     {
@@ -30,6 +45,8 @@ public class GameScene : HSingleton<GameScene>
     private void Start()
     {
         GotoLobbyScene();
+        player = GameObject.Find("Player");
+        StartCoroutine("UI_Time");
     }
 
     //[사용자 정의함수]===================================================================
@@ -38,6 +55,23 @@ public class GameScene : HSingleton<GameScene>
     //====================================================================================
     //====================================================================================
     //====================================================================================
+    IEnumerator UI_Time()
+    {
+        while (true)
+        {
+            startTime += Time.deltaTime;
+            sec = (int)(startTime % 60);
+            min = (int)(startTime / 60 % 60);
+
+            time_text.text = string.Format("{0:00}:{1:00}", min, sec);
+            time_text_die.text = string.Format("{0:00}:{1:00}", min, sec);
+
+
+            yield return null;
+        }
+    }
+
+
     public void StartDelayTime()
     {
         StartdelayT -= Time.deltaTime * 1f;
