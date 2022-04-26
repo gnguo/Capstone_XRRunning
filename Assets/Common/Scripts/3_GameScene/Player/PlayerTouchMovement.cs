@@ -8,9 +8,9 @@ public class PlayerTouchMovement : MonoBehaviour
     private float moveTimeX = 0.1f;
     private bool isXMove = false;
 
-    private float originY = 1.1f;
-    private float gravity = -13.81f;
-    private float moveTimeY = 0.7f;
+    private float originY = 2.1f;
+    private float gravity = -15.81f;
+    private float moveTimeY = 0.5f;
     public bool isJump = false;
 
     [SerializeField]
@@ -117,10 +117,8 @@ public class PlayerTouchMovement : MonoBehaviour
 
         }
         yield return new WaitForSeconds(0.2f);
-
-        isJump = false;
-        yield return new WaitForSeconds(0.22f);
-
         rd.useGravity = true;
+        isJump = false;
+
     }
 }

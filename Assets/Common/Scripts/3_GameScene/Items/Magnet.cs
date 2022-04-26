@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Magnet : MonoBehaviour
 {
-    GameObject coinDetectorObj;
+    public GameObject coinDetectorObj;
 
     // Start is called before the first frame update
     void Start()
     {
-        coinDetectorObj = GameObject.FindGameObjectWithTag("Coin_Detector");
-        coinDetectorObj.SetActive(false);
+        //coinDetectorObj = GameObject.FindGameObjectWithTag("Coin_Detector");
+        //coinDetectorObj.SetActive(false);
 
     }
 

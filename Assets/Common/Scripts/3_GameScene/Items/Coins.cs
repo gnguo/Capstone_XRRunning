@@ -10,14 +10,12 @@ public class Coins : MonoBehaviour
     public float moveSpeed = 30;
     public PlayerCtrl player;
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        //coinMoveScript = gameObject.GetComponent<MoveCoins>();
-        player = GameObject.Find("Player").GetComponent<PlayerCtrl>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCtrl>();
 
     }
+
 
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
@@ -26,14 +24,33 @@ public class Coins : MonoBehaviour
         {
             //coinMoveScript.enabled = true;
             MoveCoins();
-            Debug.Log("HIHIIHHHIIHIHh=========");
         }
 
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player_Bubble")
         {
             //Add count or give points etc etc.
-            Destroy(gameObject);
+            switch (coinType)
+            {
+                case Coin_Type.GOID:
+                    player.coinScore += 3;
+
+                    break;
+
+                case Coin_Type.SILVER:
+                    player.coinScore += 2;
+
+                    break;
+
+                case Coin_Type.BLONZE:
+                    player.coinScore++;
+                    this.gameObject.SetActive(false);
+                    //Debug.Log(this);
+
+                    break;
+
+            }
         }
+
     }
 
     void MoveCoins()

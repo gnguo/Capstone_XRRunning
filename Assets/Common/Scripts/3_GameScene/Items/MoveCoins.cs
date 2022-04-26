@@ -14,7 +14,6 @@ public class MoveCoins : MonoBehaviour
     {
         coinScript = gameObject.GetComponent<Coins>();
         player = GameObject.Find("Player").GetComponent<PlayerCtrl>();
-
     }
 
     // Update is called once per frame
@@ -23,12 +22,28 @@ public class MoveCoins : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            //Add count or give points etc etc.
-            Destroy(gameObject);
-        }
-    }
+   //private void OnTriggerEnter(Collider other)
+   //{
+   //    if (other.gameObject.tag == "Player_Bubble")
+   //    {
+   //        //Add count or give points etc etc.
+   //        Destroy(gameObject);
+   //        switch(coinScript.coinType)
+   //        {
+   //            case Coins.Coin_Type.GOID:
+   //                player.coinScore += 3;
+   //                break;
+   //
+   //            case Coins.Coin_Type.SILVER:
+   //                player.coinScore += 2;
+   //
+   //                break;
+   //
+   //            case Coins.Coin_Type.BLONZE:
+   //                player.coinScore++;
+   //                break;
+   //
+   //        }
+   //    }
+   //}
 }

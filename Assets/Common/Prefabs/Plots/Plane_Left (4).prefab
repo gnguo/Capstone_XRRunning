@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &160677851234787908
 Transform:
@@ -63,7 +63,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160677851234787904}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -121,6 +121,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 71f22057969f6ad42bd074095b31d6a5, type: 3}
       propertyPath: m_Name
       value: house_2_v_12_mobile
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 71f22057969f6ad42bd074095b31d6a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 71f22057969f6ad42bd074095b31d6a5, type: 3}
       propertyPath: m_RootOrder
@@ -248,6 +252,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_05 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9069115365609291303, guid: 60f79905accf3b24fa0114b941f1aac0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60f79905accf3b24fa0114b941f1aac0, type: 3}
 --- !u!4 &9214699056520612887 stripped
@@ -265,6 +273,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: ef6229a1cd489b743ae1214237d371fd, type: 3}
       propertyPath: m_Name
       value: house_2_v_8_mobile
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ef6229a1cd489b743ae1214237d371fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ef6229a1cd489b743ae1214237d371fd, type: 3}
       propertyPath: m_RootOrder
@@ -392,6 +404,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_05
       objectReference: {fileID: 0}
+    - target: {fileID: 9069115365609291303, guid: 60f79905accf3b24fa0114b941f1aac0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60f79905accf3b24fa0114b941f1aac0, type: 3}
 --- !u!4 &9214699056352829366 stripped
@@ -409,6 +425,10 @@ PrefabInstance:
     - target: {fileID: 2222111361404534124, guid: 88f2fd29f58b9734683512546acec310, type: 3}
       propertyPath: m_Name
       value: Tree_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2222111361404534124, guid: 88f2fd29f58b9734683512546acec310, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2222111361405018444, guid: 88f2fd29f58b9734683512546acec310, type: 3}
       propertyPath: m_RootOrder
@@ -479,6 +499,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: ef6229a1cd489b743ae1214237d371fd, type: 3}
       propertyPath: m_Name
       value: house_2_v_8_mobile (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ef6229a1cd489b743ae1214237d371fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ef6229a1cd489b743ae1214237d371fd, type: 3}
       propertyPath: m_RootOrder
@@ -553,6 +577,10 @@ PrefabInstance:
     - target: {fileID: 8783306491908617939, guid: f02116c209ecd9e488fc4d2cd8996133, type: 3}
       propertyPath: m_Name
       value: Rock_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 8783306491908617939, guid: f02116c209ecd9e488fc4d2cd8996133, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8783306491909106419, guid: f02116c209ecd9e488fc4d2cd8996133, type: 3}
       propertyPath: m_RootOrder
@@ -676,6 +704,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_05
       objectReference: {fileID: 0}
+    - target: {fileID: 1576488453971893466, guid: a778b631c6253a04899cb31bad047c81, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a778b631c6253a04899cb31bad047c81, type: 3}
 --- !u!4 &1718712882429068481 stripped
@@ -693,6 +725,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: ef6229a1cd489b743ae1214237d371fd, type: 3}
       propertyPath: m_Name
       value: house_2_v_8_mobile (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ef6229a1cd489b743ae1214237d371fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ef6229a1cd489b743ae1214237d371fd, type: 3}
       propertyPath: m_RootOrder
@@ -767,6 +803,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: dc4a4978b5be1db4fb565cf7c8fb27fd, type: 3}
       propertyPath: m_Name
       value: house_2_mobile
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: dc4a4978b5be1db4fb565cf7c8fb27fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dc4a4978b5be1db4fb565cf7c8fb27fd, type: 3}
       propertyPath: m_RootOrder
@@ -894,6 +934,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_04
       objectReference: {fileID: 0}
+    - target: {fileID: 2807449429036958551, guid: f0c16f0ea935ea64297ca1d4d55d9746, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0c16f0ea935ea64297ca1d4d55d9746, type: 3}
 --- !u!4 &2651713935680732596 stripped
@@ -911,6 +955,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: ef6229a1cd489b743ae1214237d371fd, type: 3}
       propertyPath: m_Name
       value: house_2_v_8_mobile (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ef6229a1cd489b743ae1214237d371fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ef6229a1cd489b743ae1214237d371fd, type: 3}
       propertyPath: m_RootOrder
@@ -985,6 +1033,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7950ab09ad4da144199bfd21bf42548e, type: 3}
       propertyPath: m_Name
       value: car_factory_mobile
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7950ab09ad4da144199bfd21bf42548e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7950ab09ad4da144199bfd21bf42548e, type: 3}
       propertyPath: m_RootOrder

@@ -33,6 +33,8 @@ public class JObstaclesSpanwer : MonoBehaviour
         Instantiate(obstacle, new Vector3(xPos, 0.025f, zPos), obstacle.transform.rotation);
 
         lastZPos += ObstaclesSize;
+
+        //Destroy(gameObject, 6f);
     }
 
 }

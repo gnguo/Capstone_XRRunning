@@ -36,19 +36,19 @@ public class PlayerCtrl : MonoBehaviour
 
     private SkinnedMeshRenderer[] meshs;
     private PlayerTouchMovement movement;
-    
+
 
     private GameScene gameScene;
     private GameInstance gameInstance;
     public Item_Collection itemCollection;
 
     public Animator anim;
-        
+
     public HSpawnManager spawnManager;
     public CapsuleCollider capsuleCol;
 
-    public bool IsHit =false;
-    public bool PlayerDie =false;
+    public bool IsHit = false;
+    public bool PlayerDie = false;
     public bool IsSlied = false;
 
     [SerializeField]
@@ -58,7 +58,7 @@ public class PlayerCtrl : MonoBehaviour
     public float maxHp = 100;
     public float curHp = 100;
 
-    
+
     private void Awake()
     {
         movement = GetComponent<PlayerTouchMovement>();
@@ -71,22 +71,25 @@ public class PlayerCtrl : MonoBehaviour
     {
         //gameScene.StartDelayTime();
         hpbar.value = (float)curHp / (float)maxHp;
+        movement.moveSpeed = 30;
+        Debug.Log(movement.moveSpeed);
+
     }
 
     void Update()
     {
         //if(!gameScene.IsStartDelay)
         //{
-            HPHandle();
+        HPHandle();
 
-            if (Application.isMobilePlatform)
-            {
-                OnMobilePlatform();
-            }
-            else
-            {
-                OnPCPlatform();
-            }
+        if (Application.isMobilePlatform)
+        {
+            OnMobilePlatform();
+        }
+        else
+        {
+            OnPCPlatform();
+        }
         //
     }
 
@@ -103,12 +106,12 @@ public class PlayerCtrl : MonoBehaviour
             return;
         Touch touch = Input.GetTouch(0);
 
-        if(touch.phase == TouchPhase.Began)
+        if (touch.phase == TouchPhase.Began)
         {
             touchStart = touch.position;
         }
 
-        else if(touch.phase == TouchPhase.Moved)
+        else if (touch.phase == TouchPhase.Moved)
         {
             touchEnd = touch.position;
 
@@ -119,16 +122,15 @@ public class PlayerCtrl : MonoBehaviour
 
     private void OnPCPlatform()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             touchStart = Input.mousePosition;
-            Debug.Log("touch!!!!");
         }
-        else if(Input.GetMouseButton(0))
+        else if (Input.GetMouseButton(0))
         {
             touchEnd = Input.mousePosition;
 
-            if(!PlayerDie)
+            if (!PlayerDie)
                 OnDragXY();
         }
     }
@@ -136,57 +138,33 @@ public class PlayerCtrl : MonoBehaviour
     private void OnDragXY()
     {
 
-        if(Mathf.Abs(touchEnd.x - touchStart.x )>= dragDistance &&!movement.isJump)
+        if (Mathf.Abs(touchEnd.x - touchStart.x) >= dragDistance && !movement.isJump && !IsSlied)
         {
             movement.MoveToX((int)Mathf.Sign(touchEnd.x - touchStart.x));
             return;
         }
 
-        if(touchEnd.y - touchStart.y >= dragDistanceY)
+        if (touchEnd.y - touchStart.y >= dragDistanceY)
         {
             movement.MoveToY();
             StartCoroutine(JumpOrDownTouchCoroutine());
             return;
         }
 
-        if(touchEnd.y - touchStart.y <= dragDistanceDownY)
+        if (touchEnd.y - touchStart.y <= dragDistanceDownY )
         {
-
             StartCoroutine(JumpOrDownTouchCoroutine());
             return;
         }
     }
+
     private void HPHandle()
     {
         //?????? ?????? hp???? ???????? ???????? ????
         hpbar.value = Mathf.Lerp(hpbar.value, (float)curHp / (float)maxHp, Time.deltaTime * 10);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (capsuleCol)
-        {
-            switch (other.tag)
-            {
-                case "SpawnTrigger":
-                    spawnManager.SpawnTriggerEnter();
-                    break;
 
-                case "Obstacle":
-                    HitObstacle();
-                    break;
-                case "Coin":
-                    coinScore++;
-                    gameScene.coinT.text = coinScore.ToString();
-
-                    break;
-
-            }
-
-        }
-        else
-            return;
-    }
 
     public void HitObstacle()
     {
@@ -251,18 +229,17 @@ public class PlayerCtrl : MonoBehaviour
         IsSlied = true;
         capsuleCol.enabled = false;
 
-        if(movement.isJump)
+        if (movement.isJump)
         {
             //start Jumpanim trigger
-            anim.SetBool("IsJump",true);
-            Debug.Log("isJump");
+            anim.SetBool("IsJump", true);
         }
         else
         {
-           anim.SetBool("IsSlide", true);
+            anim.SetBool("IsSlide", true);
         }
 
-        yield return new WaitForSeconds(0.21f);
+        yield return new WaitForSeconds(0.3f);
 
         IsSlied = false;
 
@@ -270,7 +247,6 @@ public class PlayerCtrl : MonoBehaviour
         {
             //start Jumpanim trigger
             anim.SetBool("IsJump", false);
-            Debug.Log("!isJump");
         }
 
         else if (anim.GetBool("IsSlide") == true)
@@ -281,6 +257,9 @@ public class PlayerCtrl : MonoBehaviour
         yield return new WaitForSeconds(0.31f);
 
         capsuleCol.enabled = true;
+        Debug.Log(capsuleCol.enabled);
+
 
     }
+
 }
