@@ -6,8 +6,8 @@ public class JPlotSpanwer : MonoBehaviour
 {
     private int initAmount = 7;
     private float plotSize = 60f;
-    private float xPosLeft = -22f;
-    private float xPosRight = 22f;
+    private float xPosLeft = -24.21f;
+    private float xPosRight = 24.21f;
     private float lastZPos = -45f;
 
     public List<GameObject> plots;
