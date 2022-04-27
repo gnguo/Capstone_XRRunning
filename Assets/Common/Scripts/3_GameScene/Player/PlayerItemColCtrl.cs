@@ -6,7 +6,7 @@ public class PlayerItemColCtrl : MonoBehaviour
 {
 
     public PlayerCtrl player;
-    
+    public ParticleSystem ItemP;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +29,7 @@ public class PlayerItemColCtrl : MonoBehaviour
         
         if (other.CompareTag("Items"))
         {
-            GameObject Particle = GameInstance.I.CreatePrefab("DESTORY_EFFECT", 0, player.transform.position, Vector3.one, Quaternion.identity);
+            ItemP.Play();
         }
     }
 

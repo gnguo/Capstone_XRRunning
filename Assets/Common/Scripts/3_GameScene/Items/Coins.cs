@@ -44,7 +44,7 @@ public class Coins : MonoBehaviour
                 case Coin_Type.BLONZE:
                     player.coinScore++;
                     this.gameObject.SetActive(false);
-                    //Debug.Log(this);
+                    Debug.Log(player.coinScore);
 
                     break;
 

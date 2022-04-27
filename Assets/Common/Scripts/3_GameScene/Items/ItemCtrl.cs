@@ -16,21 +16,6 @@ public class ItemCtrl : MonoBehaviour
 
     public bool bUse;
 
-    public short nType;
-
-    public bool bPowerUp;
-
-    public PlayerCtrl player;
-
-    public GameObject coinDetectorObj;
-    public GameObject powerUp_Img;
-
-    public PlayerTouchMovement touchmove;
-    //public ItemCtrl items;
-
-    public SphereCollider sphereCol;
-
-
     void Awake()
     {
         Items = new List<ItemCtrl>();
@@ -54,52 +39,12 @@ public class ItemCtrl : MonoBehaviour
 
     public void FullHealth()
     {
-        if (player.curHp < player.maxHp)
+        if (itemCollection.player.curHp < itemCollection.player.maxHp)
         {
-            player.curHp = 100;
+            itemCollection.player.curHp = 100;
         }
     }
 
-
-    // Update is called once per frame
-    public void ActivateCoin()
-    {
-        Debug.Log("함수에들어와여");
-        StartCoroutine(ActivateCoinCoroutine());
-        // Destroy(transform.GetChild(0).gameObject);
-    }
-
-    IEnumerator ActivateCoinCoroutine()
-    {
-        coinDetectorObj.SetActive(true);
-        yield return new WaitForSeconds(6f);
-        coinDetectorObj.SetActive(false);
-    }
-
-    //public void PowerUp()
-    //{
-    //    StartCoroutine(PowerUpCoroution());
-    //}
-    //
-    //IEnumerator PowerUpCoroution()
-    //{
-    //    touchmove.moveSpeed = 60f;
-    //    bPowerUp = true;
-    //    powerUp_Img.SetActive(true);
-    //    player.capsuleCol.enabled = false;
-    //    Debug.Log(player.gameObject.layer);
-    //
-    //    yield return new WaitForSeconds(3f);
-    //
-    //    player.capsuleCol.enabled = true;
-    //    powerUp_Img.SetActive(false);
-    //
-    //
-    //    bPowerUp = false;
-    //    touchmove.moveSpeed = 30f;
-    //    Debug.Log("ihihihihihihiihihihhihi");
-    //
-    //}
 
     public void EnableItem()
     {
@@ -109,11 +54,8 @@ public class ItemCtrl : MonoBehaviour
 
     public void DisableItem()
     {
-        GameObject Particle = GameInstance.I.CreatePrefab("DESTORY_EFFECT", 0, player.transform.position, Vector3.one * 4f, Quaternion.identity);
-        Destroy(Particle, 3f);
         SoundManager.Play(E_SOUNLIST.E_EATCELL_1);
 
-        nType = -1;
         gameObject.SetActive(false);
     }
 
@@ -123,7 +65,7 @@ public class ItemCtrl : MonoBehaviour
         if (other.CompareTag("Player_Bubble"))
         {
 
-            if (!player.PlayerDie)
+            if (!itemCollection.player.PlayerDie)
             {
                 switch (itemType)
                 {
@@ -138,12 +80,10 @@ public class ItemCtrl : MonoBehaviour
                         break;
 
                     case eItem.Magnet:
-                        ActivateCoin();
+                        itemCollection.ActivateCoin();
                         DisableItem();
                         break;
-
                 }
-
             }
         }
         else

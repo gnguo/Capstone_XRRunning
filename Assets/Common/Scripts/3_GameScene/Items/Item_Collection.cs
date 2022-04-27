@@ -61,5 +61,19 @@ public class Item_Collection : MonoBehaviour
 
     }
 
+    // Update is called once per frame
+    public void ActivateCoin()
+    {
+        Debug.Log("함수에들어와여");
+        StartCoroutine(ActivateCoinCoroutine());
+        // Destroy(transform.GetChild(0).gameObject);
+    }
+
+    IEnumerator ActivateCoinCoroutine()
+    {
+        coinDetectorObj.SetActive(true);
+        yield return new WaitForSeconds(6f);
+        coinDetectorObj.SetActive(false);
+    }
 
 }
