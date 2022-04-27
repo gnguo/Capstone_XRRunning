@@ -13,22 +13,21 @@ public class JPlayerCollisionCtrl : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (!player.PlayerDie)
-        {
             switch (other.tag)
             {
                 case "Obstacle":
                     player.HitObstacle();
+                    Debug.Log("Player HIT!!!!!!!!!!!!!!!!!!");
+
                     break;
 
                 case "Coin":
                     player.coinScore++;
                     gameScene.coinT.text = player.coinScore.ToString();
                     gameScene.coinT_die.text = player.coinScore.ToString();
+                    Debug.Log("Player HIT!!!!!!!!!!!!!!!!!!");
                     break;
             }
-        }
-        else
-            return;
+
     }
 }

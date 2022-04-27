@@ -27,9 +27,9 @@ public class PlayerItemColCtrl : MonoBehaviour
 
         }
         
-        if (other.CompareTag("SpawnTrigger"))
+        if (other.CompareTag("Items"))
         {
-            GameObject Particle = GameInstance.I.CreatePrefab("DESTORY_EFFECT", 0, player.transform.position, Vector3.one * 4f, Quaternion.identity);
+            GameObject Particle = GameInstance.I.CreatePrefab("DESTORY_EFFECT", 0, player.transform.position, Vector3.one, Quaternion.identity);
         }
     }
 
