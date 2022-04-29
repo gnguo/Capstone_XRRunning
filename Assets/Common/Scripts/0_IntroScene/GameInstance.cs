@@ -44,6 +44,7 @@ public class GameInstance : HSingleton<GameInstance>
     /// </summary>
     public E_CONTROL eControlType;
 
+    public int coinScore;
 
     protected GameInstance() { }
 

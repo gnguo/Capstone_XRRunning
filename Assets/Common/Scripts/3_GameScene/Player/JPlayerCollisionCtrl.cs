@@ -21,12 +21,6 @@ public class JPlayerCollisionCtrl : MonoBehaviour
 
                     break;
 
-                case "Coin":
-                    player.coinScore++;
-                    gameScene.coinT.text = player.coinScore.ToString();
-                    gameScene.coinT_die.text = player.coinScore.ToString();
-                    Debug.Log("Player HIT!!!!!!!!!!!!!!!!!!");
-                    break;
             }
 
     }

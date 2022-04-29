@@ -32,7 +32,6 @@ public class PlayerCtrl : MonoBehaviour
     /// 쉴드 상태 저장 변수
     /// </summary>
     public int nShield;
-    public int coinScore;
 
     private SkinnedMeshRenderer[] meshs;
     private PlayerTouchMovement movement;
@@ -170,15 +169,15 @@ public class PlayerCtrl : MonoBehaviour
     {
         if (curHp > 0 && !itemCollection.bPowerUp)
         {
-            curHp -= 10;
 
             StartCoroutine(HitObstacleICoroutine());
-        }
 
-        if (curHp <= 0)
-        {
+            if (curHp <= 0)
+            {
 
-            StartCoroutine(PlayerDeadCoroutine());
+                StartCoroutine(PlayerDeadCoroutine());
+            }
+
         }
     }
 
@@ -198,6 +197,8 @@ public class PlayerCtrl : MonoBehaviour
     IEnumerator HitObstacleICoroutine()
     {
         IsHit = true;
+        curHp -= 10;
+
         if (IsHit)
         {
             foreach (SkinnedMeshRenderer mesh in meshs)

@@ -36,6 +36,7 @@ public class GameScene : HSingleton<GameScene>
     public TextMeshProUGUI time_text_die;
 
     ItemCtrl itemctrl;
+    GameInstance gameInstance;
 
     /// <summary>
     /// UI타이머 설정
@@ -48,6 +49,8 @@ public class GameScene : HSingleton<GameScene>
     private void Awake()
     {
         itemctrl = GameObject.FindGameObjectWithTag("Items").GetComponent<ItemCtrl>();
+        gameInstance = GameObject.Find("GameInstance").GetComponent<GameInstance>();
+
     }
     private void Start()
     {
@@ -57,6 +60,9 @@ public class GameScene : HSingleton<GameScene>
     }
     public void Update()
     {
+        coinT.text = gameInstance.coinScore.ToString();
+        coinT_die.text = coinT.text;
+
         int distance = Mathf.RoundToInt((player.transform.position.z + 12.2f)) / 20;
         int score = (distance * 10) + (int)(Time.deltaTime + 100);
             //(distance * 5) + (int)(Time.deltaTime + 100);
@@ -68,6 +74,7 @@ public class GameScene : HSingleton<GameScene>
         score_text_die.text = score.ToString();
 
     }
+
     //[사용자 정의함수]===================================================================
     //====================================================================================
     //====================================================================================

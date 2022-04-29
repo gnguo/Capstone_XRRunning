@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemCtrl : MonoBehaviour
 {
 
-    public Item_Collection itemCollection;
+    private Item_Collection itemCollection;
 
     public List<ItemCtrl> Items;
 
@@ -18,23 +18,13 @@ public class ItemCtrl : MonoBehaviour
 
     void Awake()
     {
-        Items = new List<ItemCtrl>();
-        EnableItem();
-
-        int nCount = transform.childCount;
-
-        for (int i = 0; i < nCount; i++)
-        {
-            ItemCtrl Item = transform.GetChild(i).GetComponent<ItemCtrl>();
-            Items.Add(Item);
-        }
+        itemCollection = GameObject.Find("GameScene").GetComponent<Item_Collection>();
     }
 
     private void Start()
     {
 
         //coinDetectorObj = GameObject.FindGameObjectWithTag("Coin_Detector");
-        itemCollection.coinDetectorObj.SetActive(false);
     }
 
     public void FullHealth()

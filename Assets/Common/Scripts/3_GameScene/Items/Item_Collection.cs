@@ -20,6 +20,7 @@ public class Item_Collection : MonoBehaviour
 
     void Start()
     {
+        coinDetectorObj.SetActive(false);
 
     }
 
@@ -46,12 +47,12 @@ public class Item_Collection : MonoBehaviour
         touchmove.moveSpeed = 60f;
         bPowerUp = true;
         powerUp_Img.SetActive(true);
-        player.capsuleCol.enabled = false;
+        //player.capsuleCol.enabled = false;
         Debug.Log(player.gameObject.layer);
 
         yield return new WaitForSeconds(3f);
 
-        player.capsuleCol.enabled = true;
+        //player.capsuleCol.enabled = true;
         powerUp_Img.SetActive(false);
 
 

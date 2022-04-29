@@ -9,10 +9,14 @@ public class Coins : MonoBehaviour
 
     public float moveSpeed = 30;
     public PlayerCtrl player;
+    public GameInstance gameInstance;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCtrl>();
+
+        gameInstance = GameObject.Find("GameInstance").GetComponent<GameInstance>();
+
 
     }
 
@@ -32,25 +36,23 @@ public class Coins : MonoBehaviour
             switch (coinType)
             {
                 case Coin_Type.GOID:
-                    player.coinScore += 3;
+                    gameInstance.coinScore += 3;
 
                     break;
 
                 case Coin_Type.SILVER:
-                    player.coinScore += 2;
+                    gameInstance.coinScore += 2;
 
                     break;
 
                 case Coin_Type.BLONZE:
-                    player.coinScore++;
+                    gameInstance.coinScore++;
                     this.gameObject.SetActive(false);
-                    Debug.Log(player.coinScore);
+                    Debug.Log(gameInstance.coinScore);
 
                     break;
-
             }
         }
-
     }
 
     void MoveCoins()

@@ -6041,7 +6041,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d3760a26d369a49976a38bec548989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCollection: {fileID: 1357570922}
   Items: []
   itemType: 2
   nIndex: 3
@@ -8385,6 +8384,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1357570921}
     m_Modifications:
+    - target: {fileID: 966864898172181645, guid: 1ab6e0781fce7c8479abc4cf274b87e2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 966864899688030004, guid: 1ab6e0781fce7c8479abc4cf274b87e2, type: 3}
       propertyPath: m_Name
       value: Item (0)
@@ -8507,6 +8510,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 393657070, guid: 820101661b1ac4ae9bb8d85b78b5f496, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 456750082, guid: 820101661b1ac4ae9bb8d85b78b5f496, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 456750083, guid: 820101661b1ac4ae9bb8d85b78b5f496, type: 3}
       propertyPath: ItemP
       value: 
