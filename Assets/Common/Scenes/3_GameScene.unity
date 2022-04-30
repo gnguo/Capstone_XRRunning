@@ -1980,12 +1980,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plots:
   - {fileID: 969649426701401771, guid: 0c887afca85ca444f95708027d2a0d58, type: 3}
-  - {fileID: 4758395126110563853, guid: ac1d3e415e6a941f889b0d3c49c557b2, type: 3}
-  - {fileID: 1223365426930520753, guid: 8e798ed3cc1e5466badc96eb11c6e1fe, type: 3}
-  - {fileID: 4349970151852019746, guid: 9f11c92cc12c4466ba4b08c33cadd91f, type: 3}
-  - {fileID: 160677851234787904, guid: 0a8dabc4ccf264430b85f416c939ec6c, type: 3}
-  - {fileID: 1050635541441725652, guid: 63e77c492d15e405387e9486607ff243, type: 3}
-  - {fileID: 7842481674310446268, guid: 440032a40b1db4295a15b76eb500b7b0, type: 3}
+  - {fileID: 969649426701401771, guid: cdd01c2f1556ed3448c4cba440d3aa17, type: 3}
+  - {fileID: 969649426701401771, guid: 7c56c26296cc7ff418d7f8a708e9bebf, type: 3}
+  - {fileID: 969649426701401771, guid: 3ac134f95610e1a48b0eb5d1063fb425, type: 3}
+  - {fileID: 969649426701401771, guid: db7ea7772ba011d469fb8ff4de12ad60, type: 3}
+  - {fileID: 969649426701401771, guid: 89bcedc96b1bda84599c277490519e9a, type: 3}
+  - {fileID: 7842481674310446268, guid: 2acb07e523414074ebfbf91eaa019109, type: 3}
+  - {fileID: 969649426701401771, guid: acfa3f2efe9efce429c698c18b62fa70, type: 3}
+  - {fileID: 969649426701401771, guid: 372c2603d449d1c42ad0782bb1868279, type: 3}
+  - {fileID: 969649426701401771, guid: 9b691decb51a70d42bac78d774d4b367, type: 3}
+  - {fileID: 969649426701401771, guid: 281ed534b69822642a83cc68b5a17613, type: 3}
+  - {fileID: 969649426701401771, guid: 238b66f3eff84c54d8becb33314b6600, type: 3}
+  - {fileID: 969649426701401771, guid: 269ca79d1f71c8848812590ac95fd3bd, type: 3}
+  - {fileID: 969649426701401771, guid: 98d55003bf6037b48bdb03cb138aff09, type: 3}
+  - {fileID: 969649426701401771, guid: 4711d6eb274cc1f4688204792d8ba9d5, type: 3}
 --- !u!114 &448503134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8581,6 +8589,10 @@ PrefabInstance:
     - target: {fileID: 4054405284831168554, guid: 820101661b1ac4ae9bb8d85b78b5f496, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767329887846396980, guid: 820101661b1ac4ae9bb8d85b78b5f496, type: 3}
+      propertyPath: curHp
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6767329887846396980, guid: 820101661b1ac4ae9bb8d85b78b5f496, type: 3}
       propertyPath: hpbar

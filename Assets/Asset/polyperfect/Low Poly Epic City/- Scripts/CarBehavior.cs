@@ -269,24 +269,24 @@ namespace PolyPerfect.City
         {
             if (other.CompareTag("Car") && !other.isTrigger)
             {
-                StopCoroutine(StartMovingAfterWait(0.2f));
-                StartCoroutine(StartMovingAfterWait(0.2f));
-                drivingBihindCar = false;
+               StopCoroutine(StartMovingAfterWait(0.2f));
+               StartCoroutine(StartMovingAfterWait(0.2f));
+               drivingBihindCar = false;
             }
-            else if (other.CompareTag("TrafficLight"))
-            {
-                TrafficLight trafic = other.GetComponent<TrafficLight>();
-                trafic.lightChange -= StartMoving;
-                drivingTrafficLights = false;
-            }
-            else if (other.CompareTag("Crosswalk"))
-            {
-                other.GetComponent<Crosswalk>().stateChange -= CrosswalkChange;
-            }
-            else if (other.CompareTag("LevelCrossing"))
-            {
-                other.GetComponent<LevelCrossingController>().stateChange -= LevelCrossingChange;
-            }
+          // else if (other.CompareTag("TrafficLight"))
+          // {
+          //     //TrafficLight trafic = other.GetComponent<TrafficLight>();
+          //     //trafic.lightChange -= StartMoving;
+          //     //drivingTrafficLights = false;
+          // }
+          // else if (other.CompareTag("Crosswalk"))
+          // {
+          //     //other.GetComponent<Crosswalk>().stateChange -= CrosswalkChange;
+          // }
+          // else if (other.CompareTag("LevelCrossing"))
+          // {
+          //    // other.GetComponent<LevelCrossingController>().stateChange -= LevelCrossingChange;
+          // }
         }
         void StartMoving(bool isGreen)
         {

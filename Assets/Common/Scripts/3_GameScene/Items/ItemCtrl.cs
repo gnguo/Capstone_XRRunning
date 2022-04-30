@@ -18,7 +18,7 @@ public class ItemCtrl : MonoBehaviour
 
     void Awake()
     {
-        itemCollection = GameObject.Find("GameScene").GetComponent<Item_Collection>();
+        itemCollection = GameObject.Find("Item_Collection").GetComponent<Item_Collection>();
     }
 
     private void Start()
@@ -54,9 +54,6 @@ public class ItemCtrl : MonoBehaviour
     {
         if (other.CompareTag("Player_Bubble"))
         {
-
-            if (!itemCollection.player.PlayerDie)
-            {
                 switch (itemType)
                 {
                     case eItem.Heart:
@@ -74,7 +71,6 @@ public class ItemCtrl : MonoBehaviour
                         DisableItem();
                         break;
                 }
-            }
         }
         else
             return;

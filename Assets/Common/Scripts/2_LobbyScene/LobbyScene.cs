@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro;
+
 //using DG.Tweening;
 
 public class LobbyScene : HSingleton<LobbyScene>
@@ -33,11 +35,14 @@ public class LobbyScene : HSingleton<LobbyScene>
     /// </summary>
     public Vector3 DestCamPosV3;
 
-
+    public TextMeshProUGUI coinT;
+    GameInstance gameInstance;
 
     private void Awake()
     {
         DestCamPosV3 = cam.transform.position;
+        gameInstance = GameObject.Find("GameInstance").GetComponent<GameInstance>();
+
     }
 
 
@@ -60,6 +65,7 @@ public class LobbyScene : HSingleton<LobbyScene>
         //=====================================================================================
         // 마우스 클릭 위치로 카메라 이동
         //=====================================================================================
+        coinT.text = gameInstance.coinScore.ToString();
 
         if (Input.GetMouseButtonUp(0))
         {

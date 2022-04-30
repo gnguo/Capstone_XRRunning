@@ -167,7 +167,7 @@ public class PlayerCtrl : MonoBehaviour
 
     public void HitObstacle()
     {
-        if (curHp > 0 && !itemCollection.bPowerUp)
+        if (curHp > 0 && !itemCollection.bPowerUp && !IsSlied)
         {
 
             StartCoroutine(HitObstacleICoroutine());
@@ -228,7 +228,7 @@ public class PlayerCtrl : MonoBehaviour
     IEnumerator JumpOrDownTouchCoroutine()
     {
         IsSlied = true;
-        capsuleCol.enabled = false;
+        //capsuleCol.enabled = false;
 
         if (movement.isJump)
         {
@@ -257,7 +257,7 @@ public class PlayerCtrl : MonoBehaviour
 
         yield return new WaitForSeconds(0.31f);
 
-        capsuleCol.enabled = true;
+        //capsuleCol.enabled = true;
         Debug.Log(capsuleCol.enabled);
 
 
