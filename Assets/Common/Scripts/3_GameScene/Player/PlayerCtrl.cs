@@ -167,7 +167,7 @@ public class PlayerCtrl : MonoBehaviour
 
     public void HitObstacle()
     {
-        if (curHp > 0 && !itemCollection.bPowerUp && !IsSlied)
+        if (curHp > 0 && !itemCollection.bPowerUp)
         {
 
             StartCoroutine(HitObstacleICoroutine());

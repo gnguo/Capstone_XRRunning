@@ -21,7 +21,14 @@ public class JPlayerCollisionCtrl : MonoBehaviour
 
                     break;
 
-            }
+            case "Obstacles":
+                if(!player.IsSlied)
+                {
+                    player.HitObstacle();
+                    Debug.Log("Player HIT!!!!!!!!!!!!!!!!!!");
+                }
+                break;
+        }
 
     }
 }

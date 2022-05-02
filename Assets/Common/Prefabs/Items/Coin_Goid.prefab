@@ -64,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RTM: {fileID: 0}
   TM: {fileID: 757491752385279226}
-  RotVec3: {x: 0, y: 360, z: 0}
+  RotVec3: {x: 0, y: 0, z: 360}
   fSpeed: 1
   IsCanvas: 0
 --- !u!114 &5707364815704846188
@@ -113,6 +113,7 @@ MonoBehaviour:
   coinType: 2
   moveSpeed: 30
   player: {fileID: 0}
+  gameInstance: {fileID: 0}
 --- !u!1001 &757491751912227870
 PrefabInstance:
   m_ObjectHideFlags: 0

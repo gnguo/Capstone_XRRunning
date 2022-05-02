@@ -10,34 +10,83 @@ public class JPlotSpanwer : MonoBehaviour
     private float xPosRight = 24.21f;
     private float lastZPos = -45f;
 
-    public List<GameObject> plots;
+    public string[] plots;
+
+    public ObjectManager objectManager;
+
+    void Awake()
+    {
+        plots = new string[]{ "Plane_Left (0)", "Plane_Left (1)", "Plane_Left (2)",
+                              "Plane_Left (3)", "Plane_Left (4)","Plane_Left (5)","Plane_Left (6)",
+                              "Plane_Left (7)", "Plane_Left (8)","Plane_Left (9)","Plane_Left (10)",
+                              "Plane_Left (11)", "Plane_Left (12)","Plane_Left (13)"};
+    }
 
     private void Start()
     {
-        for(int i = 0; i < initAmount; i++)
+        for (int i = 0; i < initAmount; i++)
         {
             SpawnPlot();
+
         }
-    }
-
-    private void Update()
-    {
-        
-
     }
 
     public void SpawnPlot()
     {
-        GameObject plotLeft = plots[Random.Range(0, plots.Count)];
+        StartCoroutine(SpawnPlotCoroutine());
+    }
 
-        GameObject plotRight = plots[Random.Range(0, plots.Count)];
+    IEnumerator SpawnPlotCoroutine()
+    {
 
+
+        //GameObject plotLeft = plots[Random.Range(0, plots.Count)];
+
+        //GameObject plotRight = plots[Random.Range(0, plots.Count)];
+        int ranplots = Random.Range(0, 13);
         float zPos = lastZPos + plotSize;
 
-        Instantiate(plotLeft, new Vector3(xPosLeft, 0.025f, zPos), plotLeft.transform.rotation);
+        //var plotL = Instantiate(plotLeft, new Vector3(xPosLeft, 0.025f, zPos), plotLeft.transform.rotation);
+        //Instantiate(plotLeft, new Vector3(xPosLeft, 0.025f, zPos), plotLeft.transform.rotation); 
+        GameObject plotL = objectManager.MakeObj(plots[ranplots]);
+        plotL.transform.position = new Vector3(xPosLeft, 0.025f, zPos);
+        plotL.transform.rotation = plotL.transform.rotation;
 
-        Instantiate(plotRight, new Vector3(xPosRight, 0.025f, zPos), new Quaternion(0, 180, 0, 0));
+
+        //var plotR = Instantiate(plotRight, new Vector3(xPosRight, 0.025f, zPos), new Quaternion(0, 180, 0, 0));
+        //Instantiate(plotRight, new Vector3(xPosRight, 0.025f, zPos), new Quaternion(0, 180, 0, 0));
+        GameObject plotR = objectManager.MakeObj(plots[ranplots]);
+        plotR.transform.position = new Vector3(xPosRight, 0.025f, zPos);
+        plotR.transform.rotation = new Quaternion(0, 180, 0, 0);
+
 
         lastZPos += plotSize;
+
+        yield return new WaitForSeconds(20f);
+
+        plotL.SetActive(false);
+        plotR.SetActive(false);
+
+
     }
+
+
+
+    //Invoke("plotInvoke", 1f);
+
+    public void OnEnable()
+    {
+
+    }
+    public void plotInvoke()
+    {
+        gameObject.SetActive(false);
+
+    }
+    public void plotStartInvoke()
+    {
+        gameObject.SetActive(true);
+    }
+
+
 }
