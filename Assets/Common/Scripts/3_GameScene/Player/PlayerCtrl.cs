@@ -240,19 +240,23 @@ public class PlayerCtrl : MonoBehaviour
             anim.SetBool("IsSlide", true);
         }
 
+        yield return new WaitForSeconds(0.2f);
+        IsSlied = false;
+
+
+        if (anim.GetBool("IsSlide") == true)
+        {
+            anim.SetBool("IsSlide", false);
+        }
+
+
         yield return new WaitForSeconds(0.3f);
 
-        IsSlied = false;
 
         if (anim.GetBool("IsJump") == true)
         {
             //start Jumpanim trigger
             anim.SetBool("IsJump", false);
-        }
-
-        else if (anim.GetBool("IsSlide") == true)
-        {
-            anim.SetBool("IsSlide", false);
         }
 
         yield return new WaitForSeconds(0.31f);

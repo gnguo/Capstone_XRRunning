@@ -17,6 +17,12 @@ public class HTweenScaleUp : MonoBehaviour
         InitDoTween();
     }
 
+    private void OnEnable()
+    {
+        InitDoTween();
+
+    }
+
     public void InitDoTween()
     {
         // 생성하기

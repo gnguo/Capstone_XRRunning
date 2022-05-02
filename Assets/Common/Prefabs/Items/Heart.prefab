@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 966864899688030006}
   - component: {fileID: 966864899688030008}
   m_Layer: 0
-  m_Name: Item (0)
+  m_Name: Heart
   m_TagString: Items
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -305,7 +305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d3760a26d369a49976a38bec548989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCollection: {fileID: 0}
   Items: []
   itemType: 0
   nIndex: 1
@@ -321,7 +320,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 1.3
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &966864899688030008
 MonoBehaviour:

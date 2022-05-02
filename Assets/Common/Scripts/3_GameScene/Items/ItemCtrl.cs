@@ -21,11 +21,29 @@ public class ItemCtrl : MonoBehaviour
         itemCollection = GameObject.Find("Item_Collection").GetComponent<Item_Collection>();
     }
 
-    private void Start()
+    //ÃÊ±âÈ­
+    private void OnEnable()
     {
+        
+        float x = Random.Range(-3.6f, 3.6f);
+        float z = itemCollection.player.transform.position.z + 42;
 
-        //coinDetectorObj = GameObject.FindGameObjectWithTag("Coin_Detector");
+        Vector3 position = new Vector3(x, 0, z);
+
+        this.transform.position = position;
+
+        Debug.Log(position);
+        Invoke(nameof(DeactiveDelay), 5);
     }
+
+    void DeactiveDelay() => gameObject.SetActive(false);
+
+    private void OnDisable()
+    {
+        ObjectPooler.ReturnToPool(gameObject);
+        CancelInvoke();
+    }
+
 
     public void FullHealth()
     {

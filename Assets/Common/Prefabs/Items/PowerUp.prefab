@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1991798700684638630}
   - component: {fileID: 1991798700684638624}
   m_Layer: 0
-  m_Name: Item (1)
+  m_Name: PowerUp
   m_TagString: Items
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +48,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 1.3
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &1991798700684638630
 MonoBehaviour:
@@ -62,7 +62,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d3760a26d369a49976a38bec548989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemCollection: {fileID: 0}
   Items: []
   itemType: 1
   nIndex: 2

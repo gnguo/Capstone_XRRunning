@@ -36,6 +36,24 @@ public class Item_Collection : MonoBehaviour
     //====================================================================================
     //====================================================================================
     //====================================================================================
+    public void ItemSpawn()
+    {
+        int randomNum = Random.Range(0, 6);
+
+        if (randomNum == 0 || randomNum == 1) 
+        {
+            GameObject Heart = ObjectPooler.SpawnFromPool("Heart", Vector2.zero);
+            Debug.Log("hp 나와용");
+        }
+        
+        else if (randomNum == 4) 
+        {
+            GameObject PowerUp = ObjectPooler.SpawnFromPool("PowerUp", Vector2.zero);
+            Debug.Log("PowerUp 나와용");
+
+        }
+        //Heart.GetComponent<ItemCtrl>()
+    }
 
     public void PowerUp()
     {

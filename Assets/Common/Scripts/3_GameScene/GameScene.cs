@@ -35,7 +35,7 @@ public class GameScene : HSingleton<GameScene>
     public TextMeshProUGUI time_text;
     public TextMeshProUGUI time_text_die;
 
-    ItemCtrl itemctrl;
+    //ItemCtrl itemctrl;
     GameInstance gameInstance;
 
     /// <summary>
@@ -48,7 +48,7 @@ public class GameScene : HSingleton<GameScene>
 
     private void Awake()
     {
-        itemctrl = GameObject.FindGameObjectWithTag("Items").GetComponent<ItemCtrl>();
+        //itemctrl = GameObject.FindGameObjectWithTag("Items").GetComponent<ItemCtrl>();
         gameInstance = GameObject.Find("GameInstance").GetComponent<GameInstance>();
 
     }
