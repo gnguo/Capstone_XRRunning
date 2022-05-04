@@ -24,11 +24,11 @@ public class JPlotSpanwer : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < initAmount; i++)
-        {
-            SpawnPlot();
-
-        }
+      for (int i = 0; i < initAmount; i++)
+      {
+          SpawnPlot();
+     
+      }
     }
 
     public void SpawnPlot()
@@ -74,10 +74,7 @@ public class JPlotSpanwer : MonoBehaviour
 
     //Invoke("plotInvoke", 1f);
 
-    public void OnEnable()
-    {
 
-    }
     public void plotInvoke()
     {
         gameObject.SetActive(false);

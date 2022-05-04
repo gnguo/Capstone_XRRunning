@@ -64,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RTM: {fileID: 0}
   TM: {fileID: 757491752385279226}
-  RotVec3: {x: 0, y: 0, z: 360}
+  RotVec3: {x: 0, y: 360, z: 0}
   fSpeed: 1
   IsCanvas: 0
 --- !u!114 &5707364815704846188

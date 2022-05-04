@@ -8,7 +8,7 @@ public class HCameraController : MonoBehaviour
 
     //카메라 위치
     private float yOffset = 2.5f;
-    private float zOffset = -6.47f;
+    private float zOffset = -5.47f;
 
 
     void Start()
@@ -19,9 +19,13 @@ public class HCameraController : MonoBehaviour
 
     void LateUpdate()
     {
-        transform.position = new Vector3(tPlayer.position.x,
+        Vector3 pos= new Vector3(tPlayer.position.x,
                                          tPlayer.position.y + yOffset,
                                          tPlayer.position.z + zOffset);
+
+        this.transform.position = pos;
+
+
     }
 }
 

@@ -20,11 +20,14 @@ TagManager:
   - Crosswalk
   - Car
   - LevelCrossing
+  - TrafficLightCrosswalk
+  - TrafficLight
+  - Train
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Post
   - Water
   - UI
   - Player
