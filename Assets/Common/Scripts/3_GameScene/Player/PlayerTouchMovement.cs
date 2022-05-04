@@ -111,9 +111,8 @@ public class PlayerTouchMovement : MonoBehaviour
             percent = current / moveTimeY;
 
             float y = originY + (v0 * percent) + (gravity * percent * percent);
-            transform.position = new Vector3(transform.position.x,y, transform.position.z);
+            transform.position = new Vector3(transform.position.x,Mathf.Clamp(y,0,7), transform.position.z);
 
-            Debug.Log(transform.position.y);
             yield return null;
 
         }
@@ -122,8 +121,8 @@ public class PlayerTouchMovement : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
 
         //this.transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-        Vector3 endPos = new Vector3(transform.position.x, 0, transform.position.z);
-        this.transform.position = endPos;
+        //Vector3 endPos = new Vector3(transform.position.x, 0, transform.position.z);
+        //this.transform.position = endPos;
 
         isJump = false;
 

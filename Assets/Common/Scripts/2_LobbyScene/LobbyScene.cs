@@ -21,6 +21,9 @@ public class LobbyScene : HSingleton<LobbyScene>
     public GameObject OptionPanel;
 
     public TextMeshProUGUI coinT;
+
+    public GameObject shopPanel;
+
     GameInstance gameInstance;
 
     bool isStage;
@@ -61,6 +64,7 @@ public class LobbyScene : HSingleton<LobbyScene>
     public void StageBtn()
     {
         isStage = true;
+        shopPanel.SetActive(true);
     }
 
     /// <summary>
@@ -99,6 +103,12 @@ public class LobbyScene : HSingleton<LobbyScene>
         OptionPanel.SetActive(false);
         
     }
+
+    public void GoToLobbyScene()
+    {
+        shopPanel.SetActive(false);
+    }
+
     public void GoToQuitBtn()
     {
 #if UNITY_EDITOR

@@ -17,6 +17,7 @@ public class GameScene : HSingleton<GameScene>
     public GameObject pausePanel;
     public GameObject playerDeadPanel;
     public GameObject OptionPanel;
+    public GameObject ReStartPanel;
 
     public GameObject StartTimeImg;
 
@@ -155,6 +156,11 @@ public class GameScene : HSingleton<GameScene>
             OptionPanel.SetActive(false);
             return;
         }
+    }
+
+    public void RestartQBtn()
+    {
+        ReStartPanel.SetActive(true);
     }
 
     public void GoToReGameBtn()
