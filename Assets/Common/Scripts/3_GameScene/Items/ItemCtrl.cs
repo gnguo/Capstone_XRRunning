@@ -32,7 +32,6 @@ public class ItemCtrl : MonoBehaviour
 
         this.transform.position = position;
 
-        Debug.Log(position);
         Invoke(nameof(DeactiveDelay), 5);
     }
 

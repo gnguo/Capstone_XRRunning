@@ -8,7 +8,6 @@ TagManager:
   - SpawnTrigger
   - Undefined
   - Obstacles
-  - Missile
   - Obstacle
   - Coin
   - Items
@@ -23,6 +22,7 @@ TagManager:
   - TrafficLightCrosswalk
   - TrafficLight
   - Train
+  - ObsSpawnTrigger
   layers:
   - Default
   - TransparentFX

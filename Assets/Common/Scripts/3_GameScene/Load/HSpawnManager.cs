@@ -6,7 +6,7 @@ public class HSpawnManager : MonoBehaviour
 {
     HRoadSpawn roadSpawn;
     JPlotSpanwer plotSpawner;
-    JObstaclesSpanwer obstaclesSpawner;
+    public JObstaclesSpanwer obstaclesSpawner;
     public Item_Collection itemColletction;
 
     void Start()
@@ -26,8 +26,9 @@ public class HSpawnManager : MonoBehaviour
     {
         roadSpawn.MoveRoad();
         plotSpawner.SpawnPlot();
-        obstaclesSpawner.SpawnObstacle();
         itemColletction.ItemSpawn();
     }
+
+
 
 }

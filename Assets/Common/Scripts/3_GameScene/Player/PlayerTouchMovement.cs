@@ -116,13 +116,13 @@ public class PlayerTouchMovement : MonoBehaviour
             yield return null;
 
         }
-        rd.useGravity = true;
 
         yield return new WaitForSeconds(0.2f);
+        rd.useGravity = true;
 
         //this.transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-        //Vector3 endPos = new Vector3(transform.position.x, 0, transform.position.z);
-        //this.transform.position = endPos;
+        Vector3 endPos = new Vector3(transform.position.x, 0, transform.position.z);
+        this.transform.position = endPos;
 
         isJump = false;
 

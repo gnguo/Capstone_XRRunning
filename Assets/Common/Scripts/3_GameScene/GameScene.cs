@@ -151,7 +151,13 @@ public class GameScene : HSingleton<GameScene>
         if (IsPause)
         {
             Time.timeScale = 1;
-            IsPause = false;
+            IsPause = false; 
+            
+            if (ReStartPanel)
+            {
+                ReStartPanel.SetActive(false);
+            }
+
             pausePanel.SetActive(false);
             OptionPanel.SetActive(false);
             return;

@@ -31,6 +31,13 @@ public class PlayerItemColCtrl : MonoBehaviour
         {
             ItemP.Play();
         }
+
+        if (other.CompareTag("ObsSpawnTrigger"))
+        {
+            player.spawnManager.obstaclesSpawner.SpawnObstacle();
+
+        }
+
     }
 
 }
