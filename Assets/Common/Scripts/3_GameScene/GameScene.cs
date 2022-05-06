@@ -47,6 +47,8 @@ public class GameScene : HSingleton<GameScene>
     float sec;
     float min;
 
+    public List<Image> StarImgs;
+
     private void Awake()
     {
         //itemctrl = GameObject.FindGameObjectWithTag("Items").GetComponent<ItemCtrl>();
@@ -58,22 +60,30 @@ public class GameScene : HSingleton<GameScene>
         GotoLobbyScene();
         player = GameObject.Find("Player");
         StartCoroutine("UI_Time");
+
+        for (int i = 0; i < 3; i++)
+        {
+            Color color = StarImgs[i].GetComponent<Image>().color;
+            color.a = 0f;
+            StarImgs[i].GetComponent<Image>().color = color;
+        }
     }
     public void Update()
     {
         coinT.text = gameInstance.coinScore.ToString();
         coinT_die.text = coinT.text;
 
-        int distance = Mathf.RoundToInt((player.transform.position.z + 12.2f)) / 20;
-        int score = (distance * 10) + (int)(Time.deltaTime + 100);
+        gameInstance.stage01Distance = Mathf.RoundToInt((player.transform.position.z + 12.2f)) / 20;
+        gameInstance.stage01Score = (gameInstance.stage01Distance * 10) + (int)(Time.deltaTime + 100);
             //(distance * 5) + (int)(Time.deltaTime + 100);
-        distance_text.text = distance.ToString() + "M";
-        distance_text_die.text = distance.ToString() + "M";
 
+        distance_text.text = gameInstance.stage01Distance.ToString() + "M";
+        distance_text_die.text = gameInstance.stage01Distance.ToString() + "M";
 
-        score_text.text = score.ToString();
-        score_text_die.text = score.ToString();
+        score_text.text = gameInstance.stage01Score.ToString();
+        score_text_die.text = gameInstance.stage01Score.ToString();
 
+        gameInstance.Stage01Star(StarImgs);
     }
 
     //[사용자 정의함수]===================================================================

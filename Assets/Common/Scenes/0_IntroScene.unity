@@ -29014,6 +29014,8 @@ MonoBehaviour:
   coinScore: 0
   maxHp: 100
   curHp: 100
+  stage01Score: 0
+  stage01Distance: 0
 --- !u!4 &1678089214
 Transform:
   m_ObjectHideFlags: 0

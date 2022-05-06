@@ -30,6 +30,9 @@ public class LobbyScene : HSingleton<LobbyScene>
     bool isStage01;
     bool isStage02;
 
+    public List<Image> StarImgs01;
+
+    public List<Image> StarImgs02;
 
     private void Awake()
     {
@@ -40,8 +43,23 @@ public class LobbyScene : HSingleton<LobbyScene>
     void Start()
     {
         GotoIntroScene();
+
+        StageStarsAlphaZero(StarImgs01);
+        StageStarsAlphaZero(StarImgs02);
     }
 
+    void StageStarsAlphaZero(List<Image> starImg)
+    {
+
+        for (int i = 0; i < 3; i++)
+        {
+            Color color = starImg[i].GetComponent<Image>().color;
+            color.a = 0f;
+            starImg[i].GetComponent<Image>().color = color;
+
+        }
+
+    }
     /// <summary>
     /// 로고씬으로 가기^^^ 고고싱
     /// </summary>
@@ -55,6 +73,8 @@ public class LobbyScene : HSingleton<LobbyScene>
     {
         coinT.text = gameInstance.coinScore.ToString();
         coinT_Shop.text = gameInstance.coinScore.ToString();
+
+        gameInstance.Stage01Star(StarImgs01);
 
     }
     //[사용자 정의함수]===================================================================
