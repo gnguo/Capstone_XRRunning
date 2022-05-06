@@ -38,8 +38,6 @@ public class JPlotSpanwer : MonoBehaviour
 
     IEnumerator SpawnPlotCoroutine()
     {
-
-
         //GameObject plotLeft = plots[Random.Range(0, plots.Count)];
 
         //GameObject plotRight = plots[Random.Range(0, plots.Count)];

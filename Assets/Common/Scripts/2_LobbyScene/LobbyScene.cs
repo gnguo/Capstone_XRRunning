@@ -21,12 +21,14 @@ public class LobbyScene : HSingleton<LobbyScene>
     public GameObject OptionPanel;
 
     public TextMeshProUGUI coinT;
+    public TextMeshProUGUI coinT_Shop;
 
     public GameObject shopPanel;
 
     GameInstance gameInstance;
 
-    bool isStage;
+    bool isStage01;
+    bool isStage02;
 
 
     private void Awake()
@@ -52,6 +54,7 @@ public class LobbyScene : HSingleton<LobbyScene>
     void Update()
     {
         coinT.text = gameInstance.coinScore.ToString();
+        coinT_Shop.text = gameInstance.coinScore.ToString();
 
     }
     //[사용자 정의함수]===================================================================
@@ -61,9 +64,23 @@ public class LobbyScene : HSingleton<LobbyScene>
     //====================================================================================
     //====================================================================================
 
-    public void StageBtn()
+    public void StageBtn01()
     {
-        isStage = true;
+        isStage01 = true;
+        
+        if (isStage02)
+            isStage02 = false;
+
+        shopPanel.SetActive(true);
+    }
+    
+    public void StageBtn02()
+    {
+        isStage02 = true;
+
+        if (isStage01)
+            isStage01 = false;
+
         shopPanel.SetActive(true);
     }
 
@@ -72,7 +89,12 @@ public class LobbyScene : HSingleton<LobbyScene>
     /// </summary>
     public void GotoGameScene()
     {
-        if(isStage)
+        StartCoroutine(GoToGameSceneCoroutine());
+    }
+
+    IEnumerator GoToGameSceneCoroutine()
+    {
+        if (isStage01)
         {
             SoundManager.Play(E_SOUNLIST.E_SHOTBULLET);
 
@@ -81,16 +103,29 @@ public class LobbyScene : HSingleton<LobbyScene>
                 Debug.Log("개개개개개개개개개");
             }
 
-            Invoke("GotoGameSceneInvoke", 0.5f);
+            yield return new WaitForSeconds(0.5f);
 
-            isStage = false;
+            SceneManager.LoadScene("3_GameScene");
+
+            isStage01 = false;
         }
-    }
 
-    void GotoGameSceneInvoke()
-    {
+        else if (isStage02)
+        {
+            SoundManager.Play(E_SOUNLIST.E_SHOTBULLET);
 
-        SceneManager.LoadScene("3_GameScene");
+            if (GameInstance.I.CreatePopupLoading(CanvasTM))
+            {
+                Debug.Log("개개개개개개개개개");
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+            SceneManager.LoadScene("4_GameScene");
+
+            isStage02 = false;
+        }
+
     }
 
     public void GoToOptionBtn()

@@ -4,22 +4,6 @@ using UnityEngine;
 
 public class JObstaclesSpanwer : MonoBehaviour
 {
-    private int initAmount = 14;
-    private float ObstaclesSize = 30f;
-    private float xPos = 0f;
-    private float lastZPos = -60f;
-
-    private void Start()
-    {
-      // for (int i = 0; i < initAmount; i++)
-      // {
-      //     SpawnObstacle();
-      // }
-    }
-    private void Update()
-    {
-    }
-
     public void SpawnObstacle()
     {
         int ranNum = Random.Range(0, 14);

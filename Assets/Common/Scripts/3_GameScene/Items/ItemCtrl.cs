@@ -6,8 +6,7 @@ public class ItemCtrl : MonoBehaviour
 {
 
     private Item_Collection itemCollection;
-
-    public List<ItemCtrl> Items;
+    private Magnet magnet;
 
     public enum eItem { Heart, PowerUp, Magnet };
     public eItem itemType;
@@ -24,31 +23,65 @@ public class ItemCtrl : MonoBehaviour
     //ÃÊ±âÈ­
     private void OnEnable()
     {
-        
-        float x = Random.Range(-3.6f, 3.6f);
-        float z = itemCollection.player.transform.position.z + 42;
+        switch (itemType)
+        {
+            case eItem.Heart:
+                float x1 = Random.Range(-3.6f, 3.6f);
+                float z1 = itemCollection.player.transform.position.z + 42;
 
-        Vector3 position = new Vector3(x, 0, z);
+                Vector3 position1 = new Vector3(x1, 0, z1);
 
-        this.transform.position = position;
+                this.transform.position = position1;
 
-        Invoke(nameof(DeactiveDelay), 5);
+                Invoke(nameof(DeactiveDelay), 5);
+
+                break;
+
+            case eItem.PowerUp:
+                float x2 = Random.Range(-3.6f, 3.6f);
+                float z2 = itemCollection.player.transform.position.z + 42;
+
+                Vector3 position2 = new Vector3(x2, 0, z2);
+
+                this.transform.position = position2;
+
+                Invoke(nameof(DeactiveDelay), 5);
+
+                break;
+
+            case eItem.Magnet:
+
+                break;
+        }
     }
 
     void DeactiveDelay() => gameObject.SetActive(false);
 
     private void OnDisable()
     {
-        ObjectPooler.ReturnToPool(gameObject);
-        CancelInvoke();
+        switch (itemType)
+        {
+            case eItem.Heart:
+                ObjectPooler.ReturnToPool(gameObject);
+                CancelInvoke();
+                break;
+
+            case eItem.PowerUp:
+                ObjectPooler.ReturnToPool(gameObject);
+                CancelInvoke();
+                break;
+
+            case eItem.Magnet:
+                break;
+        }
     }
 
 
     public void FullHealth()
     {
-        if (itemCollection.player.curHp < itemCollection.player.maxHp)
+        if (itemCollection.player.gameInstance.curHp < itemCollection.player.gameInstance.maxHp)
         {
-            itemCollection.player.curHp = 100;
+            itemCollection.player.gameInstance.curHp = 100;
         }
     }
 
@@ -80,11 +113,6 @@ public class ItemCtrl : MonoBehaviour
 
                     case eItem.PowerUp:
                         itemCollection.PowerUp();
-                        DisableItem();
-                        break;
-
-                    case eItem.Magnet:
-                        itemCollection.ActivateCoin();
                         DisableItem();
                         break;
                 }

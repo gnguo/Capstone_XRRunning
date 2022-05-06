@@ -45,6 +45,11 @@ public class GameInstance : HSingleton<GameInstance>
     public E_CONTROL eControlType;
 
     public int coinScore;
+    /// <summary>
+    /// playerHP
+    /// </summary>
+    public float maxHp = 100;
+    public float curHp = 100;
 
     protected GameInstance() { }
 

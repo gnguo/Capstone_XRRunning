@@ -13,12 +13,7 @@ public class PlayerCtrl : MonoBehaviour
     /// <summary>
     /// 이펙트 리스트
     /// </summary>
-    public List<GameObject> EffectList;
-
-    /// <summary>
-    /// 파티클 리스트
-    /// </summary>
-    public List<ParticleSystem> ShieldParticles;
+    public List<ParticleSystem> EffectList;
 
     [SerializeField]
     private float dragDistance = 14.0f;
@@ -38,7 +33,7 @@ public class PlayerCtrl : MonoBehaviour
 
 
     private GameScene gameScene;
-    private GameInstance gameInstance;
+    public GameInstance gameInstance;
     public Item_Collection itemCollection;
 
     public Animator anim;
@@ -53,11 +48,6 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField]
     private Slider hpbar;
 
-
-    public float maxHp = 100;
-    public float curHp = 100;
-
-
     private void Awake()
     {
         movement = GetComponent<PlayerTouchMovement>();
@@ -69,7 +59,7 @@ public class PlayerCtrl : MonoBehaviour
     void Start()
     {
         //gameScene.StartDelayTime();
-        hpbar.value = (float)curHp / (float)maxHp;
+        hpbar.value = gameInstance.curHp / gameInstance.maxHp;
         movement.moveSpeed = 30;
         Debug.Log(movement.moveSpeed);
 
@@ -160,19 +150,19 @@ public class PlayerCtrl : MonoBehaviour
     private void HPHandle()
     {
         //?????? ?????? hp???? ???????? ???????? ????
-        hpbar.value = Mathf.Lerp(hpbar.value, (float)curHp / (float)maxHp, Time.deltaTime * 10);
+        hpbar.value = Mathf.Lerp(hpbar.value, gameInstance.curHp / gameInstance.maxHp, Time.deltaTime * 10);
     }
 
 
 
     public void HitObstacle()
     {
-        if (curHp > 0 && !itemCollection.bPowerUp)
+        if (gameInstance.curHp > 0 && !itemCollection.bPowerUp)
         {
 
             StartCoroutine(HitObstacleICoroutine());
 
-            if (curHp <= 0)
+            if (gameInstance.curHp <= 0)
             {
 
                 StartCoroutine(PlayerDeadCoroutine());
@@ -197,7 +187,7 @@ public class PlayerCtrl : MonoBehaviour
     IEnumerator HitObstacleICoroutine()
     {
         IsHit = true;
-        curHp -= 10;
+        gameInstance.curHp -= 10;
 
         if (IsHit)
         {

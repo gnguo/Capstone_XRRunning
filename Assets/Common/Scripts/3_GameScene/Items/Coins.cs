@@ -7,13 +7,13 @@ public class Coins : MonoBehaviour
     public enum Coin_Type { GOID, SILVER, BLONZE };
     public Coin_Type coinType;
 
-    public float moveSpeed = 30;
-    public PlayerCtrl player;
+    public float moveSpeed = 10;
+    public GameObject player;
     public GameInstance gameInstance;
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCtrl>();
+        player = GameObject.FindGameObjectWithTag("Player");
 
         gameInstance = GameObject.Find("GameInstance").GetComponent<GameInstance>();
 
@@ -24,6 +24,8 @@ public class Coins : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
+        SoundManager.Play(E_SOUNLIST.E_EATCELL_1);
+
         if (other.gameObject.tag == "Coin_Detector")
         {
             //coinMoveScript.enabled = true;
@@ -48,7 +50,6 @@ public class Coins : MonoBehaviour
                 case Coin_Type.BLONZE:
                     gameInstance.coinScore++;
                     this.gameObject.SetActive(false);
-                    Debug.Log(gameInstance.coinScore);
 
                     break;
             }
@@ -57,8 +58,9 @@ public class Coins : MonoBehaviour
 
     void MoveCoins()
     {
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position,
+        transform.position = Vector3.MoveTowards(player.transform.position, player.transform.position,
         moveSpeed * Time.deltaTime);
+        Debug.Log("MoveCoins");
 
     }
 }

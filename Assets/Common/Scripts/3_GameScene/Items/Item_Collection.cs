@@ -23,13 +23,6 @@ public class Item_Collection : MonoBehaviour
         coinDetectorObj.SetActive(false);
 
     }
-
-
-    void Update()
-    {
-
-    }
-
     //[사용자 정의 함수]==================================================================
     //====================================================================================
     //====================================================================================
@@ -38,7 +31,7 @@ public class Item_Collection : MonoBehaviour
     //====================================================================================
     public void ItemSpawn()
     {
-        int randomNum = Random.Range(0, 6);
+        int randomNum = Random.Range(0, 9);
 
         if (randomNum == 0 || randomNum == 1) 
         {
@@ -52,7 +45,6 @@ public class Item_Collection : MonoBehaviour
             Debug.Log("PowerUp 나와용");
 
         }
-        //Heart.GetComponent<ItemCtrl>()
     }
 
     public void PowerUp()
@@ -79,20 +71,4 @@ public class Item_Collection : MonoBehaviour
         Debug.Log("ihihihihihihiihihihhihi");
 
     }
-
-    // Update is called once per frame
-    public void ActivateCoin()
-    {
-        Debug.Log("함수에들어와여");
-        StartCoroutine(ActivateCoinCoroutine());
-        // Destroy(transform.GetChild(0).gameObject);
-    }
-
-    IEnumerator ActivateCoinCoroutine()
-    {
-        coinDetectorObj.SetActive(true);
-        yield return new WaitForSeconds(6f);
-        coinDetectorObj.SetActive(false);
-    }
-
 }

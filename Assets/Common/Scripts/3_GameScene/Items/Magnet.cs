@@ -5,28 +5,31 @@ using UnityEngine;
 public class Magnet : MonoBehaviour
 {
     public GameObject coinDetectorObj;
+    public PlayerCtrl player;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //coinDetectorObj = GameObject.FindGameObjectWithTag("Coin_Detector");
-        //coinDetectorObj.SetActive(false);
-
-    }
+    public bool isMagnet;
 
     // Update is called once per frame
     public void ActivateCoin()
     {
-        Debug.Log("함수에들어와여");
-        StartCoroutine(ActivateCoinCoroutine());
-        Destroy(transform.GetChild(0).gameObject);
+        if(!isMagnet)
+        {
+            SoundManager.Play(E_SOUNLIST.E_EATCELL_1);
+            player.EffectList[1].Play();
+
+            StartCoroutine(ActivateCoinCoroutine());
+        }
     }
 
     IEnumerator ActivateCoinCoroutine()
     {
+        isMagnet = true;
+
         coinDetectorObj.SetActive(true);
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(4f);
         coinDetectorObj.SetActive(false);
+
+        isMagnet = false;
     }
 
 }
