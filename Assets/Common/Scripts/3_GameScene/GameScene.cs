@@ -36,6 +36,9 @@ public class GameScene : HSingleton<GameScene>
     public TextMeshProUGUI time_text;
     public TextMeshProUGUI time_text_die;
 
+    public TextMeshProUGUI StartTimeT;
+    public GameObject StartPanel;
+
     //ItemCtrl itemctrl;
     GameInstance gameInstance;
 
@@ -44,6 +47,9 @@ public class GameScene : HSingleton<GameScene>
     /// </summary>
     private GameObject player;
     public float startTime;
+
+    float timeT = 3;
+
     float sec;
     float min;
 
@@ -61,6 +67,7 @@ public class GameScene : HSingleton<GameScene>
         player = GameObject.Find("Player");
         StartCoroutine("UI_Time");
 
+        Invoke("InvokeStartT", 3.1f);
         for (int i = 0; i < 3; i++)
         {
             Color color = StarImgs[i].GetComponent<Image>().color;
@@ -70,6 +77,8 @@ public class GameScene : HSingleton<GameScene>
     }
     public void Update()
     {
+        GameStartTimer();
+
         coinT.text = gameInstance.coinScore.ToString();
         coinT_die.text = coinT.text;
 
@@ -108,6 +117,30 @@ public class GameScene : HSingleton<GameScene>
         }
     }
 
+    void GameStartTimer()
+    {
+        if(!gameInstance.Stage01Start)
+        {
+            StartPanel.SetActive(true);
+
+            if (Mathf.Floor(timeT) <= 0)
+                return;
+
+            else
+            {
+                timeT -= Time.deltaTime;
+
+                StartTimeT.text = Mathf.Floor(timeT).ToString();
+
+            }
+        }
+    }
+
+    void InvokeStartT()
+    {
+        gameInstance.Stage01Start = true;
+        StartPanel.SetActive(false);
+    }
 
     public void StartDelayTime()
     {
@@ -182,6 +215,8 @@ public class GameScene : HSingleton<GameScene>
     public void GoToReGameBtn()
     {
         IsPause = false;
+        gameInstance.Stage01Start = false;
+
         Time.timeScale = 1;
         //fade in fade out? 넣어야할듯 , UI초기화도 필요
         SceneManager.LoadScene("2_LobbyScene");  //3_GameScene

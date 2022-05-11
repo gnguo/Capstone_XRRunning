@@ -31,7 +31,6 @@ public class PlayerCtrl : MonoBehaviour
     private SkinnedMeshRenderer[] meshs;
     private PlayerTouchMovement movement;
 
-
     private GameScene gameScene;
     public GameInstance gameInstance;
     public Item_Collection itemCollection;
@@ -59,27 +58,28 @@ public class PlayerCtrl : MonoBehaviour
     void Start()
     {
         //gameScene.StartDelayTime();
-        hpbar.value = gameInstance.curHp / gameInstance.maxHp;
-        movement.moveSpeed = 30;
-        Debug.Log(movement.moveSpeed);
+        Init();
 
     }
 
     void Update()
     {
-        //if(!gameScene.IsStartDelay)
-        //{
-        HPHandle();
 
-        if (Application.isMobilePlatform)
+        if (!PlayerDie)
         {
-            OnMobilePlatform();
+            //if(!gameScene.IsStartDelay)
+            //{
+            HPHandle();
+
+            if (Application.isMobilePlatform)
+            {
+                OnMobilePlatform();
+            }
+            else
+            {
+                OnPCPlatform();
+            }
         }
-        else
-        {
-            OnPCPlatform();
-        }
-        //
     }
 
     //[사용자 정의 함수]==================================================================
@@ -88,6 +88,14 @@ public class PlayerCtrl : MonoBehaviour
     //====================================================================================
     //====================================================================================
     //====================================================================================
+    void Init()
+    {
+        PlayerDie = false;
+        hpbar.value = gameInstance.curHp / gameInstance.maxHp;
+        movement.moveSpeed = 30;
+
+        gameInstance.curHp = gameInstance.maxHp;
+    }
 
     void OnMobilePlatform()
     {

@@ -7,7 +7,7 @@ public class Coins : MonoBehaviour
     public enum Coin_Type { GOID, SILVER, BLONZE };
     public Coin_Type coinType;
 
-    public float moveSpeed = 10;
+    public float moveSpeed = 7;
     public GameObject player;
     public GameInstance gameInstance;
 
@@ -53,14 +53,24 @@ public class Coins : MonoBehaviour
 
                     break;
             }
+
+            StartCoroutine(CoinActiveTrueCoroutine());
         }
     }
 
+    IEnumerator CoinActiveTrueCoroutine()
+    {
+
+        yield return new WaitForSeconds(3f);
+        if(this.gameObject.activeSelf ==false)
+        {
+            this.gameObject.SetActive(true);
+        }
+
+    }
     void MoveCoins()
     {
-        transform.position = Vector3.MoveTowards(player.transform.position, player.transform.position,
-        moveSpeed * Time.deltaTime);
-        Debug.Log("MoveCoins");
-
+        Vector3 YPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z + 1f);
+        transform.position = Vector3.MoveTowards(player.transform.position, YPos, moveSpeed * Time.deltaTime);
     }
 }

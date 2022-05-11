@@ -18,6 +18,9 @@ public class Item_Collection : MonoBehaviour
 
     public SphereCollider sphereCol;
 
+    public Transform[] ItemPos;
+
+
     void Start()
     {
         coinDetectorObj.SetActive(false);
@@ -31,7 +34,7 @@ public class Item_Collection : MonoBehaviour
     //====================================================================================
     public void ItemSpawn()
     {
-        int randomNum = Random.Range(0, 9);
+        int randomNum = Random.Range(0, 6);
 
         if (randomNum == 0 || randomNum == 1) 
         {

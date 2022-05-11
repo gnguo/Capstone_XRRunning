@@ -23,35 +23,29 @@ public class ItemCtrl : MonoBehaviour
     //초기화
     private void OnEnable()
     {
-        switch (itemType)
+        int ranNum = Random.Range(0, 3);
+
+        Debug.Log(this.transform.position +"아이템 나옵니다 ==============");
+        switch (ranNum)
         {
-            case eItem.Heart:
-                float x1 = Random.Range(-3.6f, 3.6f);
-                float z1 = itemCollection.player.transform.position.z + 42;
-
-                Vector3 position1 = new Vector3(x1, 0, z1);
-
-                this.transform.position = position1;
+            case 0:
+                this.transform.position = itemCollection.ItemPos[0].position;
 
                 Invoke(nameof(DeactiveDelay), 5);
-
                 break;
 
-            case eItem.PowerUp:
-                float x2 = Random.Range(-3.6f, 3.6f);
-                float z2 = itemCollection.player.transform.position.z + 42;
-
-                Vector3 position2 = new Vector3(x2, 0, z2);
-
-                this.transform.position = position2;
+            case 1:
+                this.transform.position = itemCollection.ItemPos[1].position;
 
                 Invoke(nameof(DeactiveDelay), 5);
-
                 break;
 
-            case eItem.Magnet:
+            case 2:
+                this.transform.position = itemCollection.ItemPos[2].position;
 
+                Invoke(nameof(DeactiveDelay), 5);
                 break;
+
         }
     }
 

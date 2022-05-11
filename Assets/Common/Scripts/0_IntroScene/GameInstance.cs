@@ -54,6 +54,8 @@ public class GameInstance : HSingleton<GameInstance>
 
     public int stage01Score;
     public int stage01Distance;
+
+    public bool Stage01Start;
     protected GameInstance() { }
 
     private void Awake()

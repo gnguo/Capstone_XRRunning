@@ -8,8 +8,8 @@ public class PlayerTouchMovement : MonoBehaviour
     private float moveTimeX = 0.1f;
     private bool isXMove = false;
 
-    private float originY = 0.8f;
-    private float gravity = -20.81f;
+    private float originY = 0.4f;
+    private float gravity = -10.81f;
     private float moveTimeY = 0.5f;
     public bool isJump = false;
 
@@ -32,17 +32,21 @@ public class PlayerTouchMovement : MonoBehaviour
 
     private void Update()
     {
-        if(!playerCtrl.PlayerDie)
+        if(playerCtrl.gameInstance.Stage01Start)
         {
-            transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
+            if (!playerCtrl.PlayerDie)
+            {
+                transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
 
-            //transform.Rotate(Vector3.right * rotateSpeed * Time.deltaTime);
-        }
+                //transform.Rotate(Vector3.right * rotateSpeed * Time.deltaTime);
+            }
 
-        if (transform.position.y < limitY)
-        {
-            Debug.Log("gameover");
-            playerCtrl.PlayerDie = true;
+            if (transform.position.y < limitY)
+            {
+                Debug.Log("gameover");
+                playerCtrl.PlayerDie = true;
+            }
+
         }
     }
 
