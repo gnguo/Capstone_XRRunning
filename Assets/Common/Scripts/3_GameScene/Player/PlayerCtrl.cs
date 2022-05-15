@@ -64,6 +64,7 @@ public class PlayerCtrl : MonoBehaviour
 
     void Update()
     {
+        WaitAnim();
 
         if (!PlayerDie)
         {
@@ -95,6 +96,14 @@ public class PlayerCtrl : MonoBehaviour
         movement.moveSpeed = 30;
 
         gameInstance.curHp = gameInstance.maxHp;
+    }
+
+    void WaitAnim()
+    {
+        if( !gameInstance.Stage01Start)
+            anim.SetBool("IsIdle", true);
+        else
+            anim.SetBool("IsIdle", false);
     }
 
     void OnMobilePlatform()

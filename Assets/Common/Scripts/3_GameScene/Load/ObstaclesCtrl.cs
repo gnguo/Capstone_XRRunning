@@ -4,30 +4,17 @@ using UnityEngine;
 
 public class ObstaclesCtrl : MonoBehaviour
 {
-    private float ObstaclesSize = 30f;
-    private float lastZPos = -60f;
-
-    PlayerCtrl player;
-
-    private void Awake()
+    private void Update()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCtrl>();
-
-    }
-    private void OnEnable()
-    {
-        float zPos = player.transform.position.z + ObstaclesSize;
-
-        this.transform.position = new Vector3(0, 0.025f, zPos);
-
-        Invoke(nameof(DeactiveDelay), 5);
+        if(this.gameObject.activeSelf)
+            Invoke(nameof(DeactiveDelay), 8);
     }
 
     void DeactiveDelay() => gameObject.SetActive(false);
 
     private void OnDisable()
     {
-        ObjectPooler.ReturnToPool(gameObject);
         CancelInvoke();
     }
+
 }

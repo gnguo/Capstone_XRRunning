@@ -20,6 +20,11 @@ public class Coins : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        StartCoroutine(CoinActiveTrueCoroutine());
+
+    }
 
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
@@ -54,7 +59,6 @@ public class Coins : MonoBehaviour
                     break;
             }
 
-            StartCoroutine(CoinActiveTrueCoroutine());
         }
     }
 

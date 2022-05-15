@@ -24,24 +24,24 @@ public class ItemCtrl : MonoBehaviour
     private void OnEnable()
     {
         int ranNum = Random.Range(0, 3);
+        float z = itemCollection.player.transform.position.z;
 
-        Debug.Log(this.transform.position +"아이템 나옵니다 ==============");
         switch (ranNum)
         {
             case 0:
-                this.transform.position = itemCollection.ItemPos[0].position;
+                this.transform.position = new Vector3(3.6f, 0, z);
 
                 Invoke(nameof(DeactiveDelay), 5);
                 break;
 
             case 1:
-                this.transform.position = itemCollection.ItemPos[1].position;
+                this.transform.position = new Vector3(0, 0, z);
 
                 Invoke(nameof(DeactiveDelay), 5);
                 break;
 
             case 2:
-                this.transform.position = itemCollection.ItemPos[2].position;
+                this.transform.position = new Vector3(-3.6f, 0, z);
 
                 Invoke(nameof(DeactiveDelay), 5);
                 break;

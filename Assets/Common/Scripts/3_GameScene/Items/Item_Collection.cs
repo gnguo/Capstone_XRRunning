@@ -18,8 +18,6 @@ public class Item_Collection : MonoBehaviour
 
     public SphereCollider sphereCol;
 
-    public Transform[] ItemPos;
-
 
     void Start()
     {

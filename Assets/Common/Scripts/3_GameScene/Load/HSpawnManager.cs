@@ -28,7 +28,4 @@ public class HSpawnManager : MonoBehaviour
         plotSpawner.SpawnPlot();
         itemColletction.ItemSpawn();
     }
-
-
-
 }
